@@ -1,0 +1,33 @@
+@import "./reset.scss";
+@import "../component/organism/navbar/_navbar.scss";
+
+.css-y7mn13-MuiInputBase-root-MuiOutlinedInput-root {
+    height: 30px;
+}
+
+.css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input {
+    height: 20px !important;
+    padding: 5px 14px !important;
+
+}
+
+.css-1lg9d17-MuiFormLabel-root-MuiInputLabel-root {
+    top: -5px !important;
+}
+
+.css-46bh2p-MuiCardContent-root {
+    width: 100vw;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+// @media only screen and (max-width: 768px) {
+
+//     .css-g8lwm8-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+//         top: 90px !important;
+//     }
+
+//     .css-g8lwm8-MuiPaper-root-MuiPopover-paper-MuiMenu-paper:nth-child(2) {
+//         top: 120px !important;
+//     }
+// }
