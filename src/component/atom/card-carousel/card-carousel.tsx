@@ -1,11 +1,11 @@
 import { FC, Fragment } from "react";
-import { CardContentCustomize, TypographyCustomize } from "./cardCarouselCustomize";
+import { CardContentCustomize, TypographyCustomize } from "./card-carousel-customize";
 
-interface propsModel {
+interface PropsModel {
   textLabel: string;
 }
 
-const CardCarousel: FC<propsModel> = ({ textLabel }) => {
+const CardCarousel: FC<PropsModel> = ({ textLabel }) => {
   return (
     <Fragment>
       <CardContentCustomize>

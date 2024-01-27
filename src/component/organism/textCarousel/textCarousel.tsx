@@ -2,7 +2,7 @@ import { FC, useContext } from "react";
 import {
   NavbarMenuContext,
 } from "../../../context/navbarMenuContext";
-import CardCarousel from "../../atom/cardCarousel/cardCarousel";
+import CardCarousel from "../../atom/card-carousel/card-carousel";
 import { IconButton } from "@mui/material";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";

@@ -4,7 +4,7 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { IconButton } from "@mui/material";
 import { CustomizeBadge, BoxCustomize } from "./navbarMenuCustomize";
-import SearchIcon from "../../atom/SearchIcon/searchIcon";
+import SearchIcon from "../../atom/search-Icon/search-icon";
 import { NavbarMenuContext } from "../../../context/navbarMenuContext";
 import TextFieldNavbar from "../../atom/textFieldNavbar/textFieldNavbar";
 interface propsModel {

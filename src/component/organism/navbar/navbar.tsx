@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import NavbarMenuLeft from "../../molecules/navbarMenuLeft/navbarMenuLeft";
 import NavbarMenuRight from "../../molecules/navbarMenuRight/navbarMenuRight";
-import NavbarLogo from "../../atom/navbarLogo/navbarLogo";
+import NavbarLogo from "../../atom/navbar-logo/navbar-logo";
 import PopupsMenu from "../popupsMenu/popupsMenu";
 import { AppBarCustomize } from "./appBarStyledCustomize";
 import { NavbarMenuContext } from "../../../context/navbarMenuContext";
