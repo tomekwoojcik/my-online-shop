@@ -8,6 +8,7 @@ import { NavbarMenuContext } from "../../../context/navbarMenuContext";
 
 export const Navbar = () => {
   const { matches, categories } = useContext(NavbarMenuContext);
+  console.log(categories)
   return (
     <AppBarCustomize position="static">
       {matches ? <PopupsMenu objArr={categories} /> : <NavbarMenuLeft />  }

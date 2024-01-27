@@ -1,22 +1,23 @@
 import { FC } from "react";
-import { categoriesModel } from "../../../api/apiGetCategories";
+import { CategoriesModel } from "../../../api/apiGetCategories";
 import PopupMenu from "../../molecules/popupMenu/popupMenu";
 import { BoxCustomize } from "./popupsMenuCustomize";
 
 interface propsModel {
-  objArr?: categoriesModel[];
+  objArr?: CategoriesModel[];
 }
 const PopupsMenu: FC<propsModel> = ({ objArr }) => {
   if (!objArr) {
     return <div>{"Loading..."}</div>;
   }
-  const [obj] = objArr;
+  const [obj] : CategoriesModel[] = objArr;
 
+  console.log(objArr)
   return (
     <BoxCustomize>
-      {obj.subcategories.map((obj: categoriesModel) => {
+      {obj.subcategories.map((obj: CategoriesModel, inx:number) => {
         return (
-            <PopupMenu key={obj.uid} obj={obj} />
+            <PopupMenu key={inx} obj={obj} />
         );
       })}
     </BoxCustomize>

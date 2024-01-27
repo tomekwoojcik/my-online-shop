@@ -1,13 +1,13 @@
 import { FC, Fragment } from "react";
 import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 import { Menu } from "@mui/material";
-import { categoriesModel } from "../../../api/apiGetCategories";
+import { CategoriesModel } from "../../../api/apiGetCategories";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import {
   ButtonCustomize, MenuItemCustomize
 } from "./popupMenuCustomize";
 interface propsModel {
-  obj: categoriesModel;
+  obj: CategoriesModel;
 }
 
 const PopupMenu: FC<propsModel> = ({ obj }) => {
@@ -24,7 +24,7 @@ const PopupMenu: FC<propsModel> = ({ obj }) => {
             {obj.name}
           </ButtonCustomize>
           <Menu {...bindMenu(popupState)}>
-            {obj.subcategories.map((obj: categoriesModel) => (
+            {obj.subcategories.map((obj: CategoriesModel) => (
               <MenuItemCustomize key={obj.uid} onClick={popupState.close}>
                 {obj.name}
               </MenuItemCustomize>
