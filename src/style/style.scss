@@ -1,5 +1,6 @@
 @import "./reset.scss";
 @import "../component/organism/navbar/_navbar.scss";
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 .css-y7mn13-MuiInputBase-root-MuiOutlinedInput-root {
     height: 30px;
@@ -20,14 +21,3 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
-
-// @media only screen and (max-width: 768px) {
-
-//     .css-g8lwm8-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
-//         top: 90px !important;
-//     }
-
-//     .css-g8lwm8-MuiPaper-root-MuiPopover-paper-MuiMenu-paper:nth-child(2) {
-//         top: 120px !important;
-//     }
-// }
