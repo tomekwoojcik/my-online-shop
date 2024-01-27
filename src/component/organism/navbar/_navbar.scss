@@ -1,18 +1,3 @@
 @import "../../../variables/variables.scss";
-@import "../../molecules/navbarMenuLeft/_navbarMenu.scss";
-@import "../popupsMenu/popupsMenu";
-
-// .navbar {
-//     background-color: $mainBackgroundColor;
-//     border-bottom: 1px solid $navbarBorderBottomColor;
-//     padding: $paddingTopBottom 7.5px;
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-// }
-
-// @media (min-width: $minMediaQueryWidth) {
-//     .navbar {
-//         padding: $paddingTopBottomFullWidth 25px;
-//     }
-// }
+@import "../../molecules/navbar-menu-Left/navbar-menu";
+@import "../popups-menu/popups-menu";

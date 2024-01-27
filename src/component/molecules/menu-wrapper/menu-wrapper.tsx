@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { FC, useContext } from "react";
-import PopupsMenu from "../../organism/popupsMenu/popupsMenu";
-import { NavbarMenuContext } from "../../../context/navbarMenuContext";
+import PopupsMenu from "../../organism/popups-menu/popups-menu";
+import { NavbarMenuContext } from "../../../context/navbar-menu-context";
 
 const MenuWrapper: FC = () => {
     const {categories} = useContext(NavbarMenuContext)

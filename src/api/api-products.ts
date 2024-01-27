@@ -1,5 +1,5 @@
 import axios from "axios";
-import { productModel } from "./apiProduct";
+import { productModel } from "./api-product";
 
 export interface productsModel {
   products: productModel[];

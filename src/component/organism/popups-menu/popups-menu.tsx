@@ -1,10 +1,10 @@
 import { FC } from "react";
-import { categoriesModel } from "../../../api/apiGetCategories";
-import PopupMenu from "../../molecules/popupMenu/popupMenu";
-import { BoxCustomize } from "./popupsMenuCustomize";
+import { CategoriesModel } from "../../../api/api-get-categories";
+import PopupMenu from "../../molecules/popup-menu/popup-menu";
+import { BoxCustomize } from "./popups-menu-customize";
 
 interface propsModel {
-  objArr?: categoriesModel[];
+  objArr?: CategoriesModel[];
 }
 const PopupsMenu: FC<propsModel> = ({ objArr }) => {
   if (!objArr) {
@@ -14,7 +14,7 @@ const PopupsMenu: FC<propsModel> = ({ objArr }) => {
 
   return (
     <BoxCustomize>
-      {obj.subcategories.map((obj: categoriesModel) => {
+      {obj.subcategories.map((obj: CategoriesModel) => {
         return (
             <PopupMenu key={obj.uid} obj={obj} />
         );

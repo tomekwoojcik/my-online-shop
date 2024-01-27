@@ -1,7 +1,7 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 import { propsModel } from "../model/propsContextModel";
-import { apiGetCategories, categoriesModel } from "../api/apiGetCategories";
-import { REDUCER_ACTION_TYPE, initState, reducer } from "../hooks/navbarHooks";
+import { apiGetCategories, CategoriesModel } from "../api/api-get-categories";
+import { REDUCER_ACTION_TYPE, initState, reducer } from "../hooks/navbar-hooks";
 import { useMediaQuery } from "@mui/material";
 
 export interface contextModel {
@@ -11,7 +11,7 @@ export interface contextModel {
   handlePrevious: () => void;
   matches: boolean;
   handleMenuBurger: () => void;
-  categories: categoriesModel[] | undefined;
+  categories: CategoriesModel[] | undefined;
   state: {
     navbarSearchButtonToggle: boolean;
     activeStep: number;
@@ -27,12 +27,12 @@ export const NavbarMenuContext = createContext({} as contextModel);
 
 export const NavbarMenuProvider = ({ children }: propsModel) => {
   const [state, dispatch] = useReducer(reducer, initState);
-  const [categories, setCategories] = useState<categoriesModel[] | undefined>();
+  const [categories, setCategories] = useState<CategoriesModel[] | undefined>();
   const matches: boolean = useMediaQuery("(min-width: 768px)");
 
   useEffect(() => {
     apiGetCategories("https://lopi2-backend-5517f8f04d28.herokuapp.com/api/")
-      .then((res: categoriesModel[] | undefined) => setCategories(res))
+      .then((res: CategoriesModel[] | undefined) => setCategories(res))
       .catch((err) => console.error(err));
   }, []);
 

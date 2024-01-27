@@ -1,12 +1,12 @@
 import { FC, useContext } from "react";
 import {
   NavbarMenuContext,
-} from "../../../context/navbarMenuContext";
+} from "../../../context/navbar-menu-context";
 import CardCarousel from "../../atom/card-carousel/card-carousel";
 import { IconButton } from "@mui/material";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
-import { BoxCustomize, CarouselBoxCustomize } from "./textCarouselCustomize";
+import { BoxCustomize, CarouselBoxCustomize } from "./text-carousel-customize";
 
 const TextCarousel: FC = () => {
   const { stepperTextArr, handleNext, handlePrevious, state } = useContext(NavbarMenuContext);

@@ -1,7 +1,7 @@
 import { FC, useContext } from "react";
-import TextCarousel from "../textCarousel/textCarousel";
-import MenuWrapper from "../../molecules/menuWrapper/menuWrapper";
-import { NavbarMenuContext } from "../../../context/navbarMenuContext";
+import TextCarousel from "../text-carousel/text-carousel";
+import MenuWrapper from "../../molecules/menu-wrapper/menu-wrapper";
+import { NavbarMenuContext } from "../../../context/navbar-menu-context";
 
 const BoxSliderMenu: FC = () => {
     const { state, matches } = useContext(NavbarMenuContext);

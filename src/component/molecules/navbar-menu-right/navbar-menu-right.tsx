@@ -3,10 +3,10 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { IconButton } from "@mui/material";
-import { CustomizeBadge, BoxCustomize } from "./navbarMenuCustomize";
+import { CustomizeBadge, BoxCustomize } from "./navbar-menu-right-customize";
 import SearchIcon from "../../atom/search-Icon/search-icon";
-import { NavbarMenuContext } from "../../../context/navbarMenuContext";
-import TextFieldNavbar from "../../atom/textFieldNavbar/textFieldNavbar";
+import { NavbarMenuContext } from "../../../context/navbar-menu-context";
+import TextFieldNavbar from "../../atom/text-field-navbar/text-field-navbar";
 interface propsModel {
   matches: boolean;
 }
