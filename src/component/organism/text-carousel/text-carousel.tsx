@@ -1,15 +1,18 @@
 import { FC, useContext } from "react";
-import {
-  NavbarMenuContext,
-} from "../../../context/navbar-menu-context";
-import CardCarousel from "../../atom/card-carousel/card-carousel";
+import { NavbarMenuContext } from "../../../context/navbar-menu-context";
 import { IconButton } from "@mui/material";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
-import { BoxCustomize, CarouselBoxCustomize } from "./text-carousel-customize";
+import {
+  BoxCustomize,
+  CardContentCustomize,
+  CarouselBoxCustomize,
+  TypographyCustomize,
+} from "./text-carousel.styled";
 
 const TextCarousel: FC = () => {
-  const { stepperTextArr, handleNext, handlePrevious, state } = useContext(NavbarMenuContext);
+  const { stepperTextArr, handleNext, handlePrevious, state } =
+    useContext(NavbarMenuContext);
 
   return (
     <CarouselBoxCustomize>
@@ -22,7 +25,11 @@ const TextCarousel: FC = () => {
         <ArrowBackIosNewOutlinedIcon />
       </IconButton>
       <BoxCustomize>
-        <CardCarousel textLabel={stepperTextArr[state.activeStep].label.toUpperCase()} />
+        <CardContentCustomize>
+          <TypographyCustomize>
+            {stepperTextArr[state.activeStep].label.toUpperCase()}{" "}
+          </TypographyCustomize>
+        </CardContentCustomize>
       </BoxCustomize>
       <IconButton
         onClick={() => handleNext()}

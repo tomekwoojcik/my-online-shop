@@ -1,33 +1,33 @@
 import { createContext, useEffect, useReducer, useState } from "react";
-import { propsModel } from "../model/propsContextModel";
+import { PropsModel } from "../model/props-context-model";
 import { apiGetCategories, CategoriesModel } from "../api/api-get-categories";
 import { REDUCER_ACTION_TYPE, initState, reducer } from "../hooks/navbar-hooks";
 import { useMediaQuery } from "@mui/material";
 
-export interface contextModel {
-  stepperTextArr: stepperObjModel[];
-  toggleSearchButton: (value: boolean) => void;
+export interface StepperObjModel {
+  key: number;
+  label: string;
+}
+export interface ContextModel {
+  stepperTextArr: StepperObjModel[];
+  updateMenuButtonState: (value: boolean) => void;
   handleNext: () => void;
   handlePrevious: () => void;
   matches: boolean;
   handleMenuBurger: () => void;
-  categories: CategoriesModel[] | undefined;
+  categories?: CategoriesModel[];
   state: {
     navbarSearchButtonToggle: boolean;
     activeStep: number;
     burgerToggle: boolean;
   };
 }
-export interface stepperObjModel {
-  key: number;
-  label: string;
-}
 
-export const NavbarMenuContext = createContext({} as contextModel);
+export const NavbarMenuContext = createContext({} as ContextModel);
 
-export const NavbarMenuProvider = ({ children }: propsModel) => {
+export const NavbarMenuProvider = ({ children }: PropsModel) => {
   const [state, dispatch] = useReducer(reducer, initState);
-  const [categories, setCategories] = useState<CategoriesModel[] | undefined>();
+  const [categories, setCategories] = useState<CategoriesModel[]>();
   const matches: boolean = useMediaQuery("(min-width: 768px)");
 
   useEffect(() => {
@@ -36,14 +36,14 @@ export const NavbarMenuProvider = ({ children }: propsModel) => {
       .catch((err) => console.error(err));
   }, []);
 
-  const toggleSearchButton = (value: boolean) => {
+  const updateMenuButtonState = (value: boolean) => {
     dispatch({
       type: REDUCER_ACTION_TYPE.HANDLE_SEARCH_BUTTON,
       payload: value,
     });
   };
 
-  const stepperTextArr: stepperObjModel[] = [
+  const stepperTextArr: StepperObjModel[] = [
     { key: 1, label: "Darmowa wysyłka powyżej 200 zł" },
     { key: 2, label: "Twoje zamówienie jest dla nas wazne" },
   ];
@@ -71,14 +71,14 @@ export const NavbarMenuProvider = ({ children }: propsModel) => {
   return (
     <NavbarMenuContext.Provider
       value={{
-        toggleSearchButton,
+        updateMenuButtonState,
         state,
         stepperTextArr,
         handleNext,
         handlePrevious,
         matches,
         handleMenuBurger,
-        categories
+        categories,
       }}
     >
       {children}

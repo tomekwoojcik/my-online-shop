@@ -1,7 +1,7 @@
 import { FC, useContext } from "react";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import { IconButton } from "@mui/material";
-import { BoxCustomize } from "./navbar-menu-left-customize";
+import { BoxCustomize } from "./navbar-menu-left.styled";
 import SearchIcon from "../../atom/search-Icon/search-icon";
 
 import TextFieldNavbar from "../../atom/text-field-navbar/text-field-navbar";

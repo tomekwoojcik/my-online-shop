@@ -7,7 +7,7 @@ const MenuWrapper: FC = () => {
     const {categories} = useContext(NavbarMenuContext)
     return (
         <Box>
-            <PopupsMenu objArr={categories}/>
+            <PopupsMenu categoriesArr={categories}/>
       </Box>
   );
 };

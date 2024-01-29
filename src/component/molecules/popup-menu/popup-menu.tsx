@@ -5,7 +5,7 @@ import { CategoriesModel } from "../../../api/api-get-categories";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import {
   ButtonCustomize, MenuItemCustomize
-} from "./popup-menu-customize";
+} from "./popup-menu.styled";
 interface PropsModel {
   obj: CategoriesModel;
 }

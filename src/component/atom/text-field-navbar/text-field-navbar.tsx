@@ -1,7 +1,7 @@
 import { FC, useContext } from "react";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
-import { BoxCustomize, ButtonCustomize, TextFieldCustomize } from "./text-field-navbar-customize";
+import { BoxCustomize, ButtonCustomize, TextFieldCustomize } from "./text-field-navbar.styled";
 import { NavbarMenuContext } from "../../../context/navbar-menu-context";
 const TextFieldNavbar: FC = () => {
     const {toggleSearchButton} = useContext(NavbarMenuContext);

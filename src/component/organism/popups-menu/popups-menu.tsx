@@ -3,20 +3,20 @@ import { CategoriesModel } from "../../../api/api-get-categories";
 import PopupMenu from "../../molecules/popup-menu/popup-menu";
 import { BoxCustomize } from "./popups-menu-customize";
 
-interface propsModel {
-  objArr?: CategoriesModel[];
+interface PropsModel {
+  categoriesArr?: CategoriesModel[];
 }
-const PopupsMenu: FC<propsModel> = ({ objArr }) => {
-  if (!objArr) {
+const PopupsMenu: FC<PropsModel> = ({ categoriesArr }) => {
+  if (!categoriesArr) {
     return <div>{"Loading..."}</div>;
   }
-  const [obj] = objArr;
+  const [categories] = categoriesArr;
 
   return (
     <BoxCustomize>
-      {obj.subcategories.map((obj: CategoriesModel) => {
+      {categories.subcategories.map((categoriesObj: CategoriesModel) => {
         return (
-            <PopupMenu key={obj.uid} obj={obj} />
+            <PopupMenu key={categoriesObj.uid} obj={categoriesObj} />
         );
       })}
     </BoxCustomize>

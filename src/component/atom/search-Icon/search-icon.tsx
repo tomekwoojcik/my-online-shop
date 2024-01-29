@@ -4,12 +4,12 @@ import { FC, useContext } from "react";
 import { NavbarMenuContext } from "../../../context/navbar-menu-context";
 
 const SearchIcon: FC = () => {
-  const { toggleSearchButton } = useContext(NavbarMenuContext);
+  const { updateMenuButtonState } = useContext(NavbarMenuContext);
   return (
     <IconButton
       aria-label="cart"
       onClick={() => {
-        toggleSearchButton(false);
+        updateMenuButtonState(false);
       }}
     >
       <SearchOutlinedIcon />
