@@ -5,12 +5,12 @@ import CategoryBox from "../../atom/category-box/category-box";
 import { FooterContext } from "../../../context/footerContext";
 import OtherMenuBox from "../../atom/other-menu-box/other-menu-box";
 import SubscriptionBox from "../../molecules/subscription-box/subscription-box";
-import { BoxCustomize } from "./footer-customize";
+import { FooterBoxCustomize } from "./footer-customize";
 
 const Footer: FC = () => {
   const { helpCenterArr } = useContext(FooterContext);
   return (
-    <BoxCustomize
+    <FooterBoxCustomize
       sx={{
         padding: {
           md: "69px 79px !important" },
@@ -43,7 +43,7 @@ const Footer: FC = () => {
           <SubscriptionBox />
         </Grid>
       </Grid>
-    </BoxCustomize>
+    </FooterBoxCustomize>
   );
 };
 
