@@ -1,24 +1,18 @@
-import { FC } from "react";
-import { CategoriesModel } from "../../../api/api-get-categories";
+import { FC, useContext } from "react";
 import PopupMenu from "../../molecules/popup-menu/popup-menu";
 import { PopupBoxCustomize } from "./popups-menu.styled";
+import { NavbarMenuContext } from "../../../context/navbar-menu-context";
 
-interface PropsModel {
-  categoriesArr?: CategoriesModel[];
-}
-const PopupsMenu: FC<PropsModel> = ({ categoriesArr }) => {
-  if (!categoriesArr) {
+const PopupsMenu: FC = () => {
+  const {categories, aboutUsArr} = useContext(NavbarMenuContext)
+
+  if (!categories) {
     return <div>{"Loading..."}</div>;
   }
-  const [categories] = categoriesArr;
-
   return (
     <PopupBoxCustomize>
-      {categories.subcategories.map((categoriesObj: CategoriesModel) => {
-        return (
-            <PopupMenu key={categoriesObj.uid} categoriesObj={categoriesObj} />
-        );
-      })}
+      <PopupMenu categoriesObj={categories} categoryName="Kategorie" />
+      <PopupMenu categoriesObj={aboutUsArr} categoryName="O nas" />
     </PopupBoxCustomize>
   );
 };

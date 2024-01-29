@@ -7,24 +7,25 @@ import {
   PopupButtonCustomize, MenuItemCustomize
 } from "./popup-menu.styled";
 interface PropsModel {
-  categoriesObj: CategoriesModel;
+  categoryName: string;
+  categoriesObj: CategoriesModel[];
 }
 
-const PopupMenu: FC<PropsModel> = ({ categoriesObj }) => {
+const PopupMenu: FC<PropsModel> = ({ categoryName, categoriesObj }) => {
   return (
     <PopupState variant="popover">
       {(popupState) => (
-        <Fragment key={categoriesObj.uid}>
+        <Fragment>
           <PopupButtonCustomize
             endIcon={<ArrowDropDownIcon />}
             variant="text"
             
             {...bindTrigger(popupState)}
           >
-            {categoriesObj.name}
+            {categoryName}
           </PopupButtonCustomize>
           <Menu {...bindMenu(popupState)}>
-            {categoriesObj.subcategories.map((obj: CategoriesModel) => (
+            {categoriesObj.map((obj: CategoriesModel) => (
               <MenuItemCustomize key={obj.uid} onClick={popupState.close}>
                 {obj.name}
               </MenuItemCustomize>

@@ -11,6 +11,7 @@ export interface StepperObjModel {
 
 type VoidFunction = () => void;
 export interface ContextModel {
+  aboutUsArr : CategoriesModel[]
   stepperTextArr: StepperObjModel[];
   updateSearchButtonState: (value: boolean) => void;
   handleNext: VoidFunction;
@@ -50,6 +51,20 @@ export const NavbarMenuProvider = ({ children }: PropsModel) => {
     { key: 2, label: "Twoje zamówienie jest dla nas wazne" },
   ];
 
+  const aboutUsArr : CategoriesModel[] = [{
+    name: "O nas",
+    description: "O nas",
+    subcategories: [],
+    uid: "1",
+  },
+    {
+    name: "O nas",
+    description: "O nas",
+    subcategories: [],
+    uid: "2",
+  }
+  ]
+
   const handleNext: VoidFunction = () => {
     dispatch({
       type: REDUCER_ACTION_TYPE.HANDLE_STEP,
@@ -80,6 +95,7 @@ export const NavbarMenuProvider = ({ children }: PropsModel) => {
         handlePrevious,
         mediaQueryMatches,
         handleMenuBurger,
+        aboutUsArr,
         categories,
       }}
     >

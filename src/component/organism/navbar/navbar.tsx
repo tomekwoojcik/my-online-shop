@@ -8,9 +8,10 @@ import { NavbarMenuContext } from "../../../context/navbar-menu-context";
 
 export const Navbar = () => {
   const { mediaQueryMatches, categories } = useContext(NavbarMenuContext);
+  console.log(categories);
   return (
     <AppBarCustomize position="static">
-      {mediaQueryMatches ? <PopupsMenu categoriesArr={categories} /> : <NavbarMenuLeft />  }
+      {mediaQueryMatches ? <PopupsMenu /> : <NavbarMenuLeft />  }
       {mediaQueryMatches ? <NavbarLogo /> : null}
       <NavbarMenuRight mediaQueryMatches={mediaQueryMatches} />
     </AppBarCustomize>
