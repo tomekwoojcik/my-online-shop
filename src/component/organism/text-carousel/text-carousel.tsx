@@ -4,7 +4,7 @@ import { IconButton } from "@mui/material";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import {
-  BoxCustomize,
+  InnerBoxCarouselCustomize,
   CardContentCustomize,
   CarouselBoxCustomize,
   TypographyCustomize,
@@ -24,13 +24,13 @@ const TextCarousel: FC = () => {
       >
         <ArrowBackIosNewOutlinedIcon />
       </IconButton>
-      <BoxCustomize>
+      <InnerBoxCarouselCustomize>
         <CardContentCustomize>
           <TypographyCustomize>
-            {stepperTextArr[state.activeStep].label.toUpperCase()}{" "}
+            {stepperTextArr[state.activeStep].label.toUpperCase()}
           </TypographyCustomize>
         </CardContentCustomize>
-      </BoxCustomize>
+      </InnerBoxCarouselCustomize>
       <IconButton
         onClick={() => handleNext()}
         disabled={state.activeStep == stepperTextArr.length - 1}

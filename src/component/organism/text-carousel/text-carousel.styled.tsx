@@ -1,7 +1,7 @@
 import { Box, CardContent, Typography} from "@mui/material";
 import styled from "styled-components";
 
-export const BoxCustomize = styled(Box)`
+export const InnerBoxCarouselCustomize = styled(Box)`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

@@ -7,12 +7,12 @@ import { AppBarCustomize } from "./navbar.styled";
 import { NavbarMenuContext } from "../../../context/navbar-menu-context";
 
 export const Navbar = () => {
-  const { matches, categories } = useContext(NavbarMenuContext);
+  const { mediaQueryMatches, categories } = useContext(NavbarMenuContext);
   return (
     <AppBarCustomize position="static">
-      {matches ? <PopupsMenu objArr={categories} /> : <NavbarMenuLeft />  }
-      {matches ? <NavbarLogo /> : null}
-      <NavbarMenuRight matches={matches} />
+      {mediaQueryMatches ? <PopupsMenu categoriesArr={categories} /> : <NavbarMenuLeft />  }
+      {mediaQueryMatches ? <NavbarLogo /> : null}
+      <NavbarMenuRight mediaQueryMatches={mediaQueryMatches} />
     </AppBarCustomize>
   );
 };

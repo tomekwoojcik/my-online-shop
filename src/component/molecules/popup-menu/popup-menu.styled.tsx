@@ -1,7 +1,7 @@
 import { Button, MenuItem } from "@mui/material";
 import styled from "styled-components";
 
-export const ButtonCustomize = styled(Button)`
+export const PopupButtonCustomize = styled(Button)`
   color: #0f2614 !important;
   text-transform: none !important;
   font-family: Quicksand !important;

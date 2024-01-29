@@ -3,19 +3,19 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { IconButton } from "@mui/material";
-import { BadgeCustomize, BoxCustomize } from "./navbar-menu-right.styled";
+import { BadgeCustomize, NavBarBoxCustomize } from "./navbar-menu-right.styled";
 import SearchIcon from "../../atom/search-Icon/search-icon";
 import { NavbarMenuContext } from "../../../context/navbar-menu-context";
 import TextFieldNavbar from "../../atom/text-field-navbar/text-field-navbar";
-interface propsModel {
-  matches: boolean;
+interface PropsModel {
+  mediaQueryMatches: boolean;
 }
 
-const NavbarMenuRight: FC<propsModel> = ({ matches }) => {
+const NavbarMenuRight: FC<PropsModel> = ({ mediaQueryMatches }) => {
   const { state } = useContext(NavbarMenuContext);
   return (
-    <BoxCustomize sx={{ display: { xs: "flex" } }}>
-      {matches ? (
+    <NavBarBoxCustomize sx={{ display: { xs: "flex" } }}>
+      {mediaQueryMatches ? (
         state.navbarSearchButtonToggle ? <SearchIcon/> : <TextFieldNavbar/>
       ): null}
       <IconButton aria-label="cart">
@@ -31,7 +31,7 @@ const NavbarMenuRight: FC<propsModel> = ({ matches }) => {
           <ShoppingCartOutlinedIcon />
         </BadgeCustomize>
       </IconButton>
-    </BoxCustomize>
+    </NavBarBoxCustomize>
   );
 };
 

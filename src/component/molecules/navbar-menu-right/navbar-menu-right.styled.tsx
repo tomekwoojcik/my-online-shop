@@ -7,6 +7,6 @@ export const BadgeCustomize = styled(Badge)`
   padding: 0 4px
 `;
 
-export const BoxCustomize = styled(Box)`
+export const NavBarBoxCustomize = styled(Box)`
   margin-right: 20px;
 `;

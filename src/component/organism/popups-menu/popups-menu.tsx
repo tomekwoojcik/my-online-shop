@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { CategoriesModel } from "../../../api/api-get-categories";
 import PopupMenu from "../../molecules/popup-menu/popup-menu";
-import { BoxCustomize } from "./popups-menu-customize";
+import { PopupBoxCustomize } from "./popups-menu.styled";
 
 interface PropsModel {
   categoriesArr?: CategoriesModel[];
@@ -13,13 +13,13 @@ const PopupsMenu: FC<PropsModel> = ({ categoriesArr }) => {
   const [categories] = categoriesArr;
 
   return (
-    <BoxCustomize>
+    <PopupBoxCustomize>
       {categories.subcategories.map((categoriesObj: CategoriesModel) => {
         return (
-            <PopupMenu key={categoriesObj.uid} obj={categoriesObj} />
+            <PopupMenu key={categoriesObj.uid} categoriesObj={categoriesObj} />
         );
       })}
-    </BoxCustomize>
+    </PopupBoxCustomize>
   );
 };
 

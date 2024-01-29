@@ -1,20 +1,22 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 import { PropsModel } from "../model/props-context-model";
 import { apiGetCategories, CategoriesModel } from "../api/api-get-categories";
-import { REDUCER_ACTION_TYPE, initState, reducer } from "../hooks/navbar-hooks";
+import { REDUCER_ACTION_TYPE, initState, reducer } from "../reducer/navbar-reducer";
 import { useMediaQuery } from "@mui/material";
 
 export interface StepperObjModel {
   key: number;
   label: string;
 }
+
+type VoidFunction = () => void;
 export interface ContextModel {
   stepperTextArr: StepperObjModel[];
-  updateMenuButtonState: (value: boolean) => void;
-  handleNext: () => void;
-  handlePrevious: () => void;
-  matches: boolean;
-  handleMenuBurger: () => void;
+  updateSearchButtonState: (value: boolean) => void;
+  handleNext: VoidFunction;
+  handlePrevious: VoidFunction;
+  mediaQueryMatches: boolean;
+  handleMenuBurger: VoidFunction;
   categories?: CategoriesModel[];
   state: {
     navbarSearchButtonToggle: boolean;
@@ -28,7 +30,7 @@ export const NavbarMenuContext = createContext({} as ContextModel);
 export const NavbarMenuProvider = ({ children }: PropsModel) => {
   const [state, dispatch] = useReducer(reducer, initState);
   const [categories, setCategories] = useState<CategoriesModel[]>();
-  const matches: boolean = useMediaQuery("(min-width: 768px)");
+  const mediaQueryMatches: boolean = useMediaQuery("(min-width: 768px)");
 
   useEffect(() => {
     apiGetCategories("https://lopi2-backend-5517f8f04d28.herokuapp.com/api/")
@@ -36,7 +38,7 @@ export const NavbarMenuProvider = ({ children }: PropsModel) => {
       .catch((err) => console.error(err));
   }, []);
 
-  const updateMenuButtonState = (value: boolean) => {
+  const updateSearchButtonState = (value: boolean): void => {
     dispatch({
       type: REDUCER_ACTION_TYPE.HANDLE_SEARCH_BUTTON,
       payload: value,
@@ -48,21 +50,21 @@ export const NavbarMenuProvider = ({ children }: PropsModel) => {
     { key: 2, label: "Twoje zamówienie jest dla nas wazne" },
   ];
 
-  const handleNext = () => {
+  const handleNext: VoidFunction = () => {
     dispatch({
       type: REDUCER_ACTION_TYPE.HANDLE_STEP,
       payload: ++state.activeStep,
     });
   };
 
-  const handlePrevious = () => {
+  const handlePrevious: VoidFunction = () => {
     dispatch({
       type: REDUCER_ACTION_TYPE.HANDLE_STEP,
       payload: --state.activeStep,
     });
   };
 
-  const handleMenuBurger = () =>
+  const handleMenuBurger: VoidFunction = () =>
     dispatch({
       type: REDUCER_ACTION_TYPE.HANDLE_BURGER_MENU,
       payload: !state.burgerToggle,
@@ -71,12 +73,12 @@ export const NavbarMenuProvider = ({ children }: PropsModel) => {
   return (
     <NavbarMenuContext.Provider
       value={{
-        updateMenuButtonState,
+        updateSearchButtonState,
         state,
         stepperTextArr,
         handleNext,
         handlePrevious,
-        matches,
+        mediaQueryMatches,
         handleMenuBurger,
         categories,
       }}

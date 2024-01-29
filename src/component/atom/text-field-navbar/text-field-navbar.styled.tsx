@@ -1,7 +1,7 @@
 import { Box, Button, TextField } from "@mui/material";
 import styled from "styled-components";
 
-export const BoxCustomize = styled(Box)`
+export const FormBoxCustomize = styled(Box)`
   display: flex;
   align-content: center;
   align-items: center;
@@ -14,7 +14,7 @@ export const TextFieldCustomize = styled(TextField)`
   height: 30px;
 `;
 
-export const ButtonCustomize = styled(Button)`
+export const IconButtonCustomize = styled(Button)`
   height: 30px;
   min-width: 5px !important;
   padding: 5px 5px !important;

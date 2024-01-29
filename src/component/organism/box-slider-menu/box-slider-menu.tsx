@@ -4,10 +4,10 @@ import MenuWrapper from "../../molecules/menu-wrapper/menu-wrapper";
 import { NavbarMenuContext } from "../../../context/navbar-menu-context";
 
 const BoxSliderMenu: FC = () => {
-    const { state, matches } = useContext(NavbarMenuContext);
+    const { state, mediaQueryMatches } = useContext(NavbarMenuContext);
   return (
     <>
-          {matches ? <TextCarousel /> : state.burgerToggle ? <MenuWrapper /> : <TextCarousel /> }
+          {mediaQueryMatches ? <TextCarousel /> : state.burgerToggle ? <MenuWrapper /> : <TextCarousel /> }
     </>
   );
 };
