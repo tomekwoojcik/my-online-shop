@@ -1,0 +1,10 @@
+@import "../../../variables/variables.scss";
+
+.navBar {
+    &_boxPopup {
+        display: flex;
+        flex-direction: row;
+        height: 40px;
+        justify-content: center;
+    }
+}
