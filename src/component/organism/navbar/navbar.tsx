@@ -1,19 +1,19 @@
 import { useContext } from "react";
-import NavbarMenuLeft from "../../molecules/navbarMenuLeft/navbarMenuLeft";
-import NavbarMenuRight from "../../molecules/navbarMenuRight/navbarMenuRight";
-import NavbarLogo from "../../atom/navbarLogo/navbarLogo";
-import PopupsMenu from "../popupsMenu/popupsMenu";
-import { AppBarCustomize } from "./appBarStyledCustomize";
-import { NavbarMenuContext } from "../../../context/navbarMenuContext";
+import NavbarMenuLeft from "../../molecules/navbar-menu-Left/navbar-menu-left";
+import NavbarMenuRight from "../../molecules/navbar-menu-right/navbar-menu-right";
+import NavbarLogo from "../../atom/navbar-logo/navbar-logo";
+import PopupsMenu from "../popups-menu/popups-menu";
+import { AppBarCustomize } from "./navbar.styled";
+import { NavbarMenuContext } from "../../../context/navbar-menu-context";
 
 export const Navbar = () => {
-  const { matches, categories } = useContext(NavbarMenuContext);
-  console.log(categories)
+  const { mediaQueryMatches, categories } = useContext(NavbarMenuContext);
+  console.log(categories);
   return (
     <AppBarCustomize position="static">
-      {matches ? <PopupsMenu objArr={categories} /> : <NavbarMenuLeft />  }
-      {matches ? <NavbarLogo /> : null}
-      <NavbarMenuRight matches={matches} />
+      {mediaQueryMatches ? <PopupsMenu /> : <NavbarMenuLeft />  }
+      {mediaQueryMatches ? <NavbarLogo /> : null}
+      <NavbarMenuRight mediaQueryMatches={mediaQueryMatches} />
     </AppBarCustomize>
   );
 };

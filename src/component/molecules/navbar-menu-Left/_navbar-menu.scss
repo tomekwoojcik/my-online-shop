@@ -1,0 +1,35 @@
+@import "../../../variables/variables.scss";
+@import "../../atom/navbar-logo/navbar-logo";
+
+.navbarMenu {
+    &_div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+        .MuiSvgIcon-root {
+            width: $navBarIconSize;
+            height: $navBarIconSize;
+        }
+    }
+
+    &_divRight {
+        width: 100px;
+    }
+
+    &_divLeft {
+        width: 66px;
+    }
+}
+
+@media (min-width: $minMediaQueryWidth) {
+    .navbarMenu {
+        &_div {
+            .MuiSvgIcon-root {
+                width: $navBarIconSizeFullWidth;
+                height: $navBarIconSizeFullWidth;
+            }
+        }
+    }
+}
