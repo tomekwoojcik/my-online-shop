@@ -1,9 +1,0 @@
-@import "../../../variables/variables.scss";
-
-.navbar {
-    &_logo {
-        width: $widthHeightLogo;
-        height: $widthHeightLogo;
-        background-image: url("../../../assets/navbarAssets/logo.png");
-    }
-}

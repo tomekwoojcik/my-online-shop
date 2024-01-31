@@ -1,8 +1,8 @@
 import { FC } from "react"
-
+import navbarLogo from "../../../assets/navbarAssets/logo.png";
 const NavbarLogo:FC = () => {
     return (
-        <div className="navbar_logo"/>
+        <img className="navbar_logo" src={navbarLogo} />
     )
 }
 
