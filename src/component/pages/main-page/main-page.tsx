@@ -23,7 +23,7 @@ export const MainPage: FC = () => {
       </NavbarMenuProvider>
       <Outlet />
       <FooterProvider>
-        <Footer />
+        <Footer categories={category} />
       </FooterProvider>
     </ThemeProvider>
   );

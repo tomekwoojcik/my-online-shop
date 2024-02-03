@@ -1,11 +1,13 @@
-import { FC, useContext } from "react";
-import { CategoriesModel } from "../../../api/apiGetCategories";
-import { FooterContext } from "../../../context/footerContext";
+import { FC } from "react";
 import HeadingFooter from "../heading-footer/heading-footer";
 import { BoxCustomize, ListCustomize, ButtonCustomize } from "./category-box-customize";
+import { CategoriesModel } from "../../../api/api-get-categories";
 
-const CategoryBox: FC = () => {
-  const { categories } = useContext(FooterContext);
+interface PropsModel{
+  categories: CategoriesModel[];
+}
+
+const CategoryBox: FC<PropsModel> = ({categories}) => {
 
   if (!categories) {
     return <div> {"Loading..."}</div>;
