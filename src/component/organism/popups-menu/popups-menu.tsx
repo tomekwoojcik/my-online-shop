@@ -2,10 +2,14 @@ import { FC, useContext } from "react";
 import PopupMenu from "../../molecules/popup-menu/popup-menu";
 import { PopupBoxCustomize } from "./popups-menu.styled";
 import { NavbarMenuContext } from "../../../context/navbar-menu-context";
+import { CategoriesModel } from "../../../api/api-get-categories";
 
-const PopupsMenu: FC = () => {
-  const {categories, aboutUsArr} = useContext(NavbarMenuContext)
-  console.log(categories);
+interface PropsModel{
+  categories: CategoriesModel[];
+}
+
+const PopupsMenu: FC<PropsModel> = ({categories}) => {
+  const { aboutUsArr} = useContext(NavbarMenuContext)
   if (!categories) {
     return <div>{"Loading..."}</div>;
   }

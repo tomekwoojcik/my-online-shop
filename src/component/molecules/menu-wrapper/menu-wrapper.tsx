@@ -1,13 +1,14 @@
 import { Box } from "@mui/material";
-import { FC, useContext } from "react";
+import { FC } from "react";
 import PopupsMenu from "../../organism/popups-menu/popups-menu";
-import { NavbarMenuContext } from "../../../context/navbar-menu-context";
-
-const MenuWrapper: FC = () => {
-    const {categories} = useContext(NavbarMenuContext)
+import { CategoriesModel } from "../../../api/api-get-categories";
+interface PropsModel {
+  categories: CategoriesModel[];
+}
+const MenuWrapper: FC<PropsModel> = ({categories}) => {
     return (
         <Box>
-            <PopupsMenu categoriesArr={categories}/>
+            <PopupsMenu categories={categories}/>
       </Box>
   );
 };
