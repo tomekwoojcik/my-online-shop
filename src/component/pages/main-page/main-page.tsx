@@ -6,14 +6,22 @@ import { FooterProvider } from "../../../context/footerContext";
 import Footer from "../../organism/footer/footer";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "../../../context/theme-context";
+import { Outlet, useLoaderData } from "react-router";
+import { CategoriesModel } from "../../../api/api-get-categories";
+
+
 
 export const MainPage: FC = () => {
+
+  const category  = useLoaderData() as CategoriesModel[];
+
   return (
     <ThemeProvider theme={theme}>
       <NavbarMenuProvider>
-        <Navbar />
-        <BoxSliderMenu />
+        <Navbar categories={category} />
+        <BoxSliderMenu categories={category} />
       </NavbarMenuProvider>
+      <Outlet />
       <FooterProvider>
         <Footer />
       </FooterProvider>
