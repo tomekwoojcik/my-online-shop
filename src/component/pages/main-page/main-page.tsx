@@ -13,7 +13,7 @@ export const MainPage: FC = () => {
         <BoxSliderMenu />
       </NavbarMenuProvider>
       <FooterProvider>
-        <Footer />
+        <Footer categories={category} />
       </FooterProvider>
     </>
   );
