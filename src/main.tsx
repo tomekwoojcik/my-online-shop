@@ -13,9 +13,11 @@ import ProductShop from "./pages/product-shop/product-shop.tsx";
 import { apiGetCategories, CategoriesModel } from "./api/api-get-categories.ts";
 
 export async function loader() {
-  const category : CategoriesModel[] | undefined = await apiGetCategories("https://lopi2-backend-5517f8f04d28.herokuapp.com/api/");
-  return category ;
-} 
+  const category: CategoriesModel[] | undefined = await apiGetCategories(
+    "https://lopi2-backend-5517f8f04d28.herokuapp.com/api/"
+  );
+  return category;
+}
 
 const router = createBrowserRouter([
   {
@@ -23,12 +25,13 @@ const router = createBrowserRouter([
     element: <MainPage />,
     errorElement: <ErrorPage />,
     loader: loader,
-    
+
     children: [
       {
         path: "category",
         element: <CategoryShop />,
         errorElement: <ErrorPage />,
+        loader: loader,
       },
       {
         path: "cart",
