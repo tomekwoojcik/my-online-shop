@@ -1,7 +1,7 @@
 import { FC, useContext } from "react";
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import { FormControlCustomize, TextFieldCustomize, IconButtonCustomize } from "./form-subscription-footer-customize";
-import { FooterContext } from "../../../context/footerContext";
+import { FooterContext } from "../../../context/footer-context";
 
 
 const FormSubscriptionFooter: FC = () => {

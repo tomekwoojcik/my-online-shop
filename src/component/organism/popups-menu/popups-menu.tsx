@@ -5,7 +5,6 @@ import { NavbarMenuContext } from "../../../context/navbar-menu-context";
 
 const PopupsMenu: FC = () => {
   const {categories, aboutUsArr} = useContext(NavbarMenuContext)
-  console.log(categories);
   if (!categories) {
     return <div>{"Loading..."}</div>;
   }
