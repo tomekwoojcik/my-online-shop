@@ -1,6 +1,6 @@
-export const pathMain = "/";
-export const pathCategory = "category";
-export const pathCart = "cart";
-export const pathCheckout = "checkout";
-export const pathOrderConfirmation = "orderConfirmation";
-export const pathProduct = "product";
+export const mainPath = "/";
+export const categoryPath = "category";
+export const cartPath = "cart";
+export const checkoutPath = "checkout";
+export const orderConfirmationPath = "orderConfirmation";
+export const productPath = "product";

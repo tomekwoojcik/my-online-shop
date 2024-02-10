@@ -9,10 +9,10 @@ interface PropsModel {
 }
 
 const BoxSliderMenu: FC<PropsModel> = ({categories}) => {
-    const { state, mediaQueryMatches } = useContext(NavbarMenuContext);
+    const { state, breakpointView } = useContext(NavbarMenuContext);
   return (
     <>
-          {mediaQueryMatches ? <TextCarousel /> : state.burgerToggle ? <MenuWrapper categories={categories} /> : <TextCarousel /> }
+          {breakpointView ? <TextCarousel /> : state.burgerToggle ? <MenuWrapper categories={categories} /> : <TextCarousel /> }
     </>
   );
 };
