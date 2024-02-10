@@ -10,7 +10,7 @@ interface PropsContextModel {
   handleButtonCategory: (arrIndex: number) => void;
   activeCategory: number | null;
   arrCategory: CategoriesModel[];
-  mediaQueryMatches: boolean;
+  breakpointView: boolean;
   handleClickOpen: VoidFunction;
   handleClose: VoidFunction;
   open: boolean;
@@ -32,7 +32,7 @@ export const CategoryShopProvider = ({ children }: PropsModel) => {
     setOpen(false);
   };
 
-  const mediaQueryMatches: boolean = useMediaQuery("(min-width: 768px)");
+  const breakpointView: boolean = useMediaQuery("(min-width: 768px)");
 
   const handleButtonCategory = (arrIndex: number) => {
     setActiveCategory(arrIndex);
@@ -44,7 +44,7 @@ export const CategoryShopProvider = ({ children }: PropsModel) => {
         activeCategory,
         handleButtonCategory,
         arrCategory,
-        mediaQueryMatches,
+        breakpointView,
         handleClickOpen,
         open,
         handleClose,
