@@ -16,7 +16,7 @@ export interface ContextModel {
   updateSearchButtonState: (value: boolean) => void;
   handleNext: VoidFunction;
   handlePrevious: VoidFunction;
-  mediaQueryMatches: boolean;
+  breakpointView: boolean;
   handleMenuBurger: VoidFunction;
   categories?: CategoriesModel[];
   state: {
@@ -31,7 +31,7 @@ export const NavbarMenuContext = createContext({} as ContextModel);
 export const NavbarMenuProvider = ({ children }: PropsModel) => {
   const [state, dispatch] = useReducer(reducer, initState);
   const [categories, setCategories] = useState<CategoriesModel[]>();
-  const mediaQueryMatches: boolean = useMediaQuery("(min-width: 768px)");
+  const breakpointView: boolean = useMediaQuery("(min-width: 768px)");
 
   useEffect(() => {
     apiGetCategories("https://lopi2-backend-5517f8f04d28.herokuapp.com/api/")
@@ -93,7 +93,7 @@ export const NavbarMenuProvider = ({ children }: PropsModel) => {
         stepperTextArr,
         handleNext,
         handlePrevious,
-        mediaQueryMatches,
+        breakpointView,
         handleMenuBurger,
         aboutUsArr,
         categories,

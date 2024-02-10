@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export interface CategoriesObjModel {
+export interface CategoryModel {
   parentCategoryId: string;
   name: string;
   description: string;
@@ -8,21 +8,14 @@ export interface CategoriesObjModel {
   imagePath: string;
 }
 
-export interface CategoriesObjResponse {
-  name: string;
-  description: string;
-  subcategories: string[];
-  uid: string;
-}
-
 export const apiAddCategories = async (
   url: string,
-  categoriesObj: CategoriesObjModel
-): Promise<CategoriesObjResponse | undefined> => {
+  categoriesObj: CategoryModel
+): Promise<CategoryModel | undefined> => {
   const apiUrl: string = url + "categories";
 
   try {
-    const response = await axios.post<CategoriesObjResponse>(
+    const response = await axios.post<CategoryModel>(
       apiUrl,
       categoriesObj
     );

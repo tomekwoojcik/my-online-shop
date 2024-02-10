@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Box } from "@mui/material";
-import { ArrButtonModel } from "../../../context/footerContext";
+import { ArrButtonModel } from "../../../context/footer-context";
 import HeadingFooter from "../heading-footer/heading-footer";
 import { ButtonCustomize, ListCustomize } from "./other-menu-customize";
 
