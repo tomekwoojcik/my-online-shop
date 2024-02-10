@@ -5,7 +5,8 @@ export const CategoryBoxMenuCustomize = styled(Box)`
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  padding: 200px 0 100px 0 !important;
+  padding: 75px 0 75px 0 !important;
+  width: 320px !important;
 `;
 export const TypographyCategoryBoxMenuCustomize = styled(Typography)`
   font-family: Quicksand !important;
@@ -24,7 +25,7 @@ export const LineCustomize = styled(Box)`
   border: 0.5px solid #ff9a17;
 `;
 export const CategoryInnerBoxMenuCustomize = styled(Box)`
-  width: 76%;
+  width: 267px;
   margin-top: 30px;
 `;
 

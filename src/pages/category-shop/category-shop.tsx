@@ -1,10 +1,14 @@
-import CategoryBoxMenu from "./category-box-menu/category-box-menu";
+import { ThemeProvider } from "@mui/material";
 import { CategoryShopProvider } from "./category-shop-context";
+import { theme } from "../../context/theme-context";
+import CategoryBox from "./category-box/category-box";
 
 const CategoryShop = () => {
   return (
     <CategoryShopProvider>
-      <CategoryBoxMenu />
+      <ThemeProvider theme={theme}>
+        <CategoryBox/>
+        </ThemeProvider>
     </CategoryShopProvider>
   );
 };
