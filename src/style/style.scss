@@ -21,3 +21,15 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
+
+.container {
+    display: grid;
+    grid-auto-rows: 1fr min-content;
+    min-height: 100vh;
+}
+
+.footer {
+    grid-row: 2;
+    justify-self: center;
+    align-self: end;
+}

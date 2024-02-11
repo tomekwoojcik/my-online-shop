@@ -8,11 +8,11 @@ import SubscriptionBox from "../../molecules/subscription-box/subscription-box";
 import { FooterBoxCustomize } from "./footer-customize";
 import { CategoriesModel } from "../../../api/api-get-categories";
 
-interface PropsModel{
+interface FooterPropsModel{
   categories: CategoriesModel[];
 }
 
-const Footer: FC<PropsModel> = ({categories}) => {
+const Footer: FC<FooterPropsModel> = ({categories}) => {
   const { helpCenterArr } = useContext(FooterContext);
   return (
     <FooterBoxCustomize

@@ -13,12 +13,12 @@ interface PropsModel{
 }
 
 export const Navbar: FC<PropsModel> = ({ categories }) => {
-  const { mediaQueryMatches } = useContext(NavbarMenuContext);
+  const { breakpointView } = useContext(NavbarMenuContext);
   return (
     <AppBarCustomize position="static">
-      {mediaQueryMatches ? <PopupsMenu categories={categories} /> : <NavbarMenuLeft/>  }
-      {mediaQueryMatches ? <NavbarLogo /> : null}
-      <NavbarMenuRight mediaQueryMatches={mediaQueryMatches} />
+      {breakpointView ? <PopupsMenu categories={categories} /> : <NavbarMenuLeft/>  }
+      {breakpointView ? <NavbarLogo /> : null}
+      <NavbarMenuRight breakpointView={breakpointView} />
     </AppBarCustomize>
   );
 };
