@@ -65,7 +65,10 @@ export const FooterProvider = ({ children }: PropsModel) => {
           heading: "O nas",
         },
         {
-          heading: "Blog",
+          heading: "Przepisy",
+        },
+        {
+          heading: "Kawiarnia",
         },
       ],
     },
