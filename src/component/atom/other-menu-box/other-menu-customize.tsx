@@ -9,8 +9,8 @@ export const ButtonCustomize = styled(Button)`
   text-transform: none !important;
   padding: 6px 0 !important;
   border-radius: 0 !important;
-  min-width:0;
-  text-align:left;
+  min-width:0 !important;
+  text-align:left !important;
 `;
 
 export const ListCustomize = styled(List)`
