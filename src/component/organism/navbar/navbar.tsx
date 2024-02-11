@@ -7,12 +7,11 @@ import { AppBarCustomize } from "./navbar.styled";
 import { NavbarMenuContext } from "../../../context/navbar-menu-context";
 import { CategoriesModel } from "../../../api/api-get-categories";
 
-
-interface PropsModel{
+interface NavBarPropsModel{
   categories: CategoriesModel[];
 }
 
-export const Navbar: FC<PropsModel> = ({ categories }) => {
+export const Navbar: FC<NavBarPropsModel> = ({ categories }) => {
   const { breakpointView } = useContext(NavbarMenuContext);
   return (
     <AppBarCustomize position="static">

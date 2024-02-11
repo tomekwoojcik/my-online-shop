@@ -5,12 +5,12 @@ import HeadingFooter from "../heading-footer/heading-footer";
 import { ButtonCustomize, ListCustomize } from "./other-menu-customize";
 
 
-interface PropsModel {
+interface OtherMenuPropsModel {
   name: string;
   arr: ArrButtonModel[];
 }
 
-const OtherMenuBox: FC<PropsModel> = ({ name, arr }) => {
+const OtherMenuBox: FC<OtherMenuPropsModel> = ({ name, arr }) => {
   return (
     <Box>
       <HeadingFooter heading={name} />

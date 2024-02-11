@@ -2,16 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { PropsModel } from "../model/props-context-model";
 import { apiGetCategories, CategoriesModel } from "../api/api-get-categories";
 import { useMediaQuery } from "@mui/material";
-
-export interface ArrButtonModel {
-  heading: string;
-}
-
-export interface MenuBoxObjModel {
-  masterHeading: string;
-  arrButton: ArrButtonModel[];
-
-}
+import { MenuBoxObjModel, apiPath, helpCenterArr } from "../state/state";
 
 interface FooterContextModel {
   categories: CategoriesModel[] | undefined;
@@ -33,46 +24,10 @@ export const FooterProvider = ({ children }: PropsModel) => {
   }
 
   useEffect(() => {
-    apiGetCategories("https://lopi2-backend-5517f8f04d28.herokuapp.com/api/")
+    apiGetCategories(apiPath)
       .then((res: CategoriesModel[] | undefined) => setCategories(res))
       .catch((err) => console.error(err));
   }, []);
-
-
-  const helpCenterArr: MenuBoxObjModel[] = [
-    {
-      masterHeading: "Centrum Pomocy",
-      arrButton: [
-        {
-          heading: "Regulamin",
-        },
-        {
-          heading: "RODO",
-        },
-        {
-          heading: "Polityka prywatności cookies",
-        },
-        {
-          heading: "Polityka prywatności",
-        },
-      ],
-    },
-
-    {
-      masterHeading: "My",
-      arrButton: [
-        {
-          heading: "O nas",
-        },
-        {
-          heading: "Przepisy",
-        },
-        {
-          heading: "Kawiarnia",
-        },
-      ],
-    },
-  ];
 
   return (
     <FooterContext.Provider value={{ categories, helpCenterArr, setHandleEmail, getEmail, breakpointView }}>

@@ -7,7 +7,7 @@ interface PropsModel {
 }
 const MenuWrapper: FC<PropsModel> = ({categories}) => {
     return (
-        <Box>
+        <Box style={{width:"100% !important"}}>
             <PopupsMenu categories={categories}/>
       </Box>
   );

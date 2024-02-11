@@ -6,12 +6,12 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import {
   PopupButtonCustomize, MenuItemCustomize
 } from "./popup-menu.styled";
-interface PropsModel {
+interface PopupMenuPropsModel {
   categoryName: string;
   categoriesObj: CategoriesModel[];
 }
 
-const PopupMenu: FC<PropsModel> = ({ categoryName, categoriesObj }) => {
+const PopupMenu: FC<PopupMenuPropsModel> = ({ categoryName, categoriesObj }) => {
   return (
     <PopupState variant="popover">
       {(popupState) => (
