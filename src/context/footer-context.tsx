@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { PropsModel } from "../model/props-context-model";
+import { PropsContextModel } from "../model/props-context-model";
 import { apiGetCategories, CategoriesModel } from "../api/apiGetCategories";
 
 export interface ArrButtonModel {
@@ -21,7 +21,7 @@ interface FooterContextModel {
 
 export const FooterContext = createContext({} as FooterContextModel);
 
-export const FooterProvider = ({ children }: PropsModel) => {
+export const FooterProvider = ({ children }: PropsContextModel) => {
   const [handleEmail, setHandleEmail] = useState<string>("");
   const [categories, setCategories] = useState<CategoriesModel[] | undefined>();
 
