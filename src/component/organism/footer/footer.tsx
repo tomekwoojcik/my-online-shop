@@ -6,8 +6,13 @@ import { FooterContext } from "../../../context/footer-context";
 import OtherMenuBox from "../../atom/other-menu-box/other-menu-box";
 import SubscriptionBox from "../../molecules/subscription-box/subscription-box";
 import { FooterBoxCustomize } from "./footer-customize";
+import { CategoriesModel } from "../../../api/api-get-categories";
 
-const Footer: FC = () => {
+interface FooterPropsModel{
+  categories: CategoriesModel[];
+}
+
+const Footer: FC<FooterPropsModel> = ({categories}) => {
   const { helpCenterArr } = useContext(FooterContext);
   return (
     <FooterBoxCustomize
@@ -23,7 +28,7 @@ const Footer: FC = () => {
           <ContactBox />
         </Grid>
         <Grid xs={6} md={2} item>
-          <CategoryBox />
+          <CategoryBox categories={categories} />
         </Grid>
         <Grid xs={6} md={2} item>
           <OtherMenuBox

@@ -1,11 +1,16 @@
 import { Box } from "@mui/material";
 import { FC } from "react";
 import PopupsMenu from "../../organism/popups-menu/popups-menu";
+import { CategoriesModel } from "../../../api/api-get-categories";
 
-const MenuWrapper: FC = () => {
+interface PropsModel {
+  categories: CategoriesModel[];
+}
+
+const MenuWrapper: FC<PropsModel> = ({categories}) => {
     return (
-        <Box>
-            <PopupsMenu/>
+        <Box style={{width:"100% !important"}}>
+            <PopupsMenu categories={categories}/>
       </Box>
   );
 };

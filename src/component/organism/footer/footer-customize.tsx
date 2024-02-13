@@ -11,4 +11,4 @@ export const FooterBoxCustomize = styled(Box)`
   justify-content: space-between;
   margin: auto 0;
   padding: 24px 18px;
-`;
+  `

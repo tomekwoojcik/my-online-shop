@@ -1,19 +1,23 @@
-import { useContext } from "react";
+import { FC, useContext } from "react";
 import NavbarMenuLeft from "../../molecules/navbar-menu-Left/navbar-menu-left";
 import NavbarMenuRight from "../../molecules/navbar-menu-right/navbar-menu-right";
 import NavbarLogo from "../../atom/navbar-logo/navbar-logo";
 import PopupsMenu from "../popups-menu/popups-menu";
 import { AppBarCustomize } from "./navbar.styled";
 import { NavbarMenuContext } from "../../../context/navbar-menu-context";
+import { CategoriesModel } from "../../../api/api-get-categories";
 
-export const Navbar = () => {
-  const { mediaQueryMatches, categories } = useContext(NavbarMenuContext);
-  console.log(categories);
+interface NavBarPropsModel{
+  categories: CategoriesModel[];
+}
+
+export const Navbar: FC<NavBarPropsModel> = ({ categories }) => {
+  const { breakpointView } = useContext(NavbarMenuContext);
   return (
     <AppBarCustomize position="static">
-      {mediaQueryMatches ? <PopupsMenu /> : <NavbarMenuLeft />  }
-      {mediaQueryMatches ? <NavbarLogo /> : null}
-      <NavbarMenuRight mediaQueryMatches={mediaQueryMatches} />
+      {breakpointView ? <PopupsMenu categories={categories} /> : <NavbarMenuLeft/>  }
+      {breakpointView ? <NavbarLogo /> : null}
+      <NavbarMenuRight breakpointView={breakpointView} />
     </AppBarCustomize>
   );
 };
