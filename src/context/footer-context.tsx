@@ -9,7 +9,6 @@ interface FooterContextModel {
   helpCenterArr: MenuBoxObjModel[];
   setHandleEmail: React.Dispatch<React.SetStateAction<string>>;
   getEmail: () => void;
-  breakpointView: boolean;
 }
 
 export const FooterContext = createContext({} as FooterContextModel);
@@ -17,7 +16,6 @@ export const FooterContext = createContext({} as FooterContextModel);
 export const FooterProvider = ({ children }: PropsModel) => {
   const [handleEmail, setHandleEmail] = useState<string>("");
   const [categories, setCategories] = useState<CategoriesModel[] | undefined>();
-    const breakpointView: boolean = useMediaQuery("(min-width: 768px)");
 
   const getEmail = (): void => {
       handleEmail

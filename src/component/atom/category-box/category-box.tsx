@@ -1,4 +1,6 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
+import { CategoriesModel } from "../../../api/apiGetCategories";
+import { FooterContext } from "../../../context/footer-context";
 import HeadingFooter from "../heading-footer/heading-footer";
 import { BoxCustomize, ListCustomize, ButtonCustomize } from "./category-box-customize";
 import { CategoriesModel } from "../../../api/api-get-categories";

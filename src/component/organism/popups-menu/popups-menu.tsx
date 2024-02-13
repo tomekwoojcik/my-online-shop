@@ -10,6 +10,7 @@ interface PopupsMenuPropsModel{
 
 const PopupsMenu: FC<PopupsMenuPropsModel> = ({categories}) => {
   const { aboutUsArr} = useContext(NavbarMenuContext)
+
   if (!categories) {
     return <div>{"Loading..."}</div>;
   }
