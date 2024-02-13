@@ -4,12 +4,13 @@ import { PopupBoxCustomize } from "./popups-menu.styled";
 import { NavbarMenuContext } from "../../../context/navbar-menu-context";
 import { CategoriesModel } from "../../../api/api-get-categories";
 
-interface PropsModel{
+interface PopupsMenuPropsModel{
   categories: CategoriesModel[];
 }
 
-const PopupsMenu: FC<PropsModel> = ({categories}) => {
+const PopupsMenu: FC<PopupsMenuPropsModel> = ({categories}) => {
   const { aboutUsArr} = useContext(NavbarMenuContext)
+
   if (!categories) {
     return <div>{"Loading..."}</div>;
   }

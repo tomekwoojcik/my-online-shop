@@ -7,6 +7,9 @@ export const ButtonCustomize = styled(Button)`
   font-size: 15px !important;
   color: #0f2615 !important;
   text-transform: none !important;
+  padding: 6px 0 !important;
+  border-radius: 0 !important;
+  min-width: 0 !important;
 `;
 
 export const BoxCustomize = styled(Box)`

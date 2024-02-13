@@ -7,15 +7,15 @@ import { BadgeCustomize, NavBarBoxCustomize } from "./navbar-menu-right.styled";
 import SearchIcon from "../../atom/search-Icon/search-icon";
 import { NavbarMenuContext } from "../../../context/navbar-menu-context";
 import TextFieldNavbar from "../../atom/text-field-navbar/text-field-navbar";
-interface PropsModel {
-  mediaQueryMatches: boolean;
+interface NavbarPropsModel {
+  breakpointView: boolean;
 }
 
-const NavbarMenuRight: FC<PropsModel> = ({ mediaQueryMatches }) => {
+const NavbarMenuRight: FC<NavbarPropsModel> = ({ breakpointView }) => {
   const { state } = useContext(NavbarMenuContext);
   return (
     <NavBarBoxCustomize sx={{ display: { xs: "flex" } }}>
-      {mediaQueryMatches ? (
+      {breakpointView ? (
         state.navbarSearchButtonToggle ? <SearchIcon/> : <TextFieldNavbar/>
       ): null}
       <IconButton aria-label="cart">
