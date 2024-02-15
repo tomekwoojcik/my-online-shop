@@ -14,6 +14,7 @@ const CategoryBoxMenuSlider = () => {
 
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);
+    return event
   };
 
   const getSliderThumbAriaLabel = (index: number): string => {

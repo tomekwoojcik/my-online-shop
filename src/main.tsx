@@ -7,10 +7,8 @@ import { apiGetCategories, CategoriesModel } from "./api/api-get-categories.ts";
 import { router } from "./context/router-context.tsx";
 
 export async function loader() {
-  const category: CategoriesModel[] | undefined = await apiGetCategories(
-    "https://lopi2-backend-5517f8f04d28.herokuapp.com/api/"
-  );
-  return category;
+  const categories: CategoriesModel[] | undefined = await apiGetCategories("https://lopi2-backend-5517f8f04d28.herokuapp.com/api/");
+  return categories;
 }
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

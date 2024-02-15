@@ -19,10 +19,10 @@ interface PropsContextModel {
 export const CategoryShopContext = createContext({} as PropsContextModel);
 
 export const CategoryShopProvider = ({ children }: PropsModel) => {
-  const category = useLoaderData() as CategoriesModel[];
+  const categories = useLoaderData() as CategoriesModel[];
 
   const [activeCategory, setActiveCategory] = useState<number | null>(null);
-  const [arrCategory] = useState<CategoriesModel[]>(category);
+  const [arrCategory] = useState<CategoriesModel[]>(categories);
   const [open, setOpen] = useState<boolean>(false);
   const handleClickOpen = () => {
     setOpen(true);
