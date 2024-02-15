@@ -5,12 +5,12 @@ import { CarouselModel, MainPageContext } from "./main-page-context";
 
 const BoxSlider = styled(Box)`
   width: 100vw;
-  height: 600px;
+  height: 803px !important;
 `;
 
 const CartSlider = styled(Box)`
   width: 100vw;
-  height: 600px;
+  height: 803px !important;
   display: flex;
   flex-direction: column;
 `;
@@ -27,6 +27,7 @@ const SmallParagraph = styled(Typography)`
 `;
 
 const MainParagraph = styled(Typography)`
+  margin-top: 30px !important;
   font-family: Quicksand !important;
   font-size: 80px !important;
   font-weight: 700 !important;
@@ -37,14 +38,21 @@ const MainParagraph = styled(Typography)`
 `;
 
 const BoxText = styled(Box)`
-  width: 875px;
+  width: 1204px;
   margin-left: 38px;
-  margin-top:100px;
+  margin-top: 250px;
 `;
 
 const ButtonBoxText = styled(Button)`
   padding: 0 12px;
   margin-left: 2px !important;
+  margin-top: 30px !important;
+  font-family: Quicksand !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3799999952316284px !important;
+  line-height: 25px !important;
+  text-align: left !important;
 `;
 
 const ButtonsBox = styled(Box)`
@@ -53,9 +61,11 @@ const ButtonsBox = styled(Box)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: 12.5% 50%;
 `;
 
 const ButtonSlider = styled(Button)`
+  border: 1px solid !important;
   width: 10px !important;
   height: 10px !important;
   background-color: #f2e0c9 !important;
@@ -87,6 +97,7 @@ const MainPageTemplate = () => {
         <ButtonsBox>
           {carouselArr.map((cartObj: CarouselModel) => (
             <ButtonSlider
+              style={{borderColor: idxObj == cartObj.key ? "#FF9A17 !important" : ""}}
               variant="contained"
               onClick={() => setIdxObj(cartObj.key)}
             />
