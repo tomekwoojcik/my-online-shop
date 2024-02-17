@@ -6,7 +6,7 @@ import { CategoryDialog } from "../category-box-menu/category-box-menu-dialog";
 
 const CategoryBox = () => {
     const { breakpointView } = useContext(CategoryShopContext);
-    return breakpointView ? <CategoryDialog /> : <CategoryBoxMenu/> 
+    return breakpointView ? <CategoryBoxMenu/> : <CategoryDialog /> 
 }
 
 export default CategoryBox

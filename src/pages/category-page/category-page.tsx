@@ -1,4 +1,3 @@
-// import CategoryBox from "../category-shop/category-box/category-box";
 import CategoryShop from "../category-shop/category-shop";
 import { CategoryShopProvider } from "../category-shop/category-shop-context";
 
