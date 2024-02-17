@@ -44,7 +44,6 @@ const BoxText = styled(Box)`
 `;
 
 const ButtonBoxText = styled(Button)`
-  padding: 0 12px;
   margin-left: 2px !important;
   margin-top: 30px !important;
   font-family: Quicksand !important;
@@ -56,26 +55,36 @@ const ButtonBoxText = styled(Button)`
 `;
 
 const ButtonsBox = styled(Box)`
-  width: 60px;
+  width: 70px;
   height: 25px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 12.5% 50%;
+  display: flex !important;
 `;
 
 const ButtonSlider = styled(Button)`
-  border: 1px solid !important;
   width: 10px !important;
   height: 10px !important;
   background-color: #f2e0c9 !important;
   padding: 0 !important;
   min-width: 0 !important;
+  align-self: center !important;
+`;
+
+const BorderBox = styled(Box)`
+  width: 20px !important;
+  height: 20px !important;
+  display: flex !important;
+  justify-content: center;
+  border-radius: 100% !important;
 `;
 
 const MainPageTemplate = () => {
   const [idxObj, setIdxObj] = useState<number>(0);
   const { carouselArr } = useContext(MainPageContext);
+  console.log(idxObj);
   return (
     <BoxSlider>
       <CartSlider
@@ -96,11 +105,20 @@ const MainPageTemplate = () => {
         </BoxText>
         <ButtonsBox>
           {carouselArr.map((cartObj: CarouselModel) => (
-            <ButtonSlider
-              style={{borderColor: idxObj == cartObj.key ? "#FF9A17 !important" : ""}}
-              variant="contained"
-              onClick={() => setIdxObj(cartObj.key)}
-            />
+            <BorderBox
+              sx={{
+                border:
+                  idxObj == cartObj.key
+                    ? " 1px solid #FF9A17 !important"
+                    : " 1px solid transparent !important",
+              }}
+              key={cartObj.key}
+            >
+              <ButtonSlider
+                variant="contained"
+                onClick={() => setIdxObj(cartObj.key)}
+              />
+            </BorderBox>
           ))}
         </ButtonsBox>
       </CartSlider>
