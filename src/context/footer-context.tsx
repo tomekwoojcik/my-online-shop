@@ -1,5 +1,5 @@
-import { createContext, useEffect, useState } from "react";
-import { PropsModel } from "../model/props-context-model";
+import {createContext, Dispatch, SetStateAction, useEffect, useState} from "react";
+import { PropsContextModel } from "../model/props-context-model";
 import { apiGetCategories, CategoriesModel } from "../api/api-get-categories";
 import { useMediaQuery } from "@mui/material";
 import { MenuBoxObjModel, apiPath, helpCenterArr } from "../state/state";
@@ -7,16 +7,17 @@ import { MenuBoxObjModel, apiPath, helpCenterArr } from "../state/state";
 interface FooterContextModel {
   categories: CategoriesModel[] | undefined;
   helpCenterArr: MenuBoxObjModel[];
-  setHandleEmail: React.Dispatch<React.SetStateAction<string>>;
+  setHandleEmail: Dispatch<SetStateAction<string>>;
   getEmail: () => void;
+  breakpointView:boolean;
 }
 
 export const FooterContext = createContext({} as FooterContextModel);
 
-export const FooterProvider = ({ children }: PropsModel) => {
+export const FooterProvider = ({ children }: PropsContextModel) => {
   const [handleEmail, setHandleEmail] = useState<string>("");
   const [categories, setCategories] = useState<CategoriesModel[] | undefined>();
-
+  const breakpointView:boolean = useMediaQuery("(min-width:768px)")
   const getEmail = (): void => {
       handleEmail
   }
