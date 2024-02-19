@@ -1,10 +1,10 @@
-import { useContext } from "react";
+import { FC, useContext } from "react";
 import { CarouselModel, SlidesContext } from "./home-page-slides-context";
 import ButtonsSlider from "./home-page-slides-button-slider/buttons-slider";
 import HomePageSlidesBoxText from "./home-page-slides-box-text/home-page-slides-box-text";
 import { BoxSlider, ButtonsBox, CartSlider } from "./home-page-slides.styled";
 
-const HomePageSlides = () => {
+const HomePageSlides:FC = () => {
   const { carouselArr, idxObj } = useContext(SlidesContext);
   return (
     <BoxSlider>
