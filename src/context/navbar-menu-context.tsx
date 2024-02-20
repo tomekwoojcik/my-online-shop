@@ -1,5 +1,5 @@
 import { createContext, useEffect, useReducer, useState } from "react";
-import { PropsModel } from "../model/props-context-model";
+import { PropsContextModel } from "../model/props-context-model";
 import { apiGetCategories, CategoriesModel } from "../api/api-get-categories";
 import { REDUCER_ACTION_TYPE, initState, reducer } from "../reducer/navbar-reducer";
 import { useMediaQuery } from "@mui/material";
@@ -29,7 +29,7 @@ export interface ContextModel {
 
 export const NavbarMenuContext = createContext({} as ContextModel);
 
-export const NavbarMenuProvider = ({ children }: PropsModel) => {
+export const NavbarMenuProvider = ({ children }: PropsContextModel) => {
   const [state, dispatch] = useReducer(reducer, initState);
   const [categories, setCategories] = useState<CategoriesModel[]>();
   const breakpointView: boolean = useMediaQuery("(min-width: 768px)");

@@ -24,7 +24,7 @@ export const MainParagraph = styled(Typography)`
 `;
 
 export const BoxText = styled(Box)`
-  width: 1204px;
+  width: 85vw;
   margin-left: 38px;
   margin-top: 250px;
 `;

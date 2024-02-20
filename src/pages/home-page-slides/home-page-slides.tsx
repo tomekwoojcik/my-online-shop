@@ -11,6 +11,8 @@ const HomePageSlides:FC = () => {
       <CartSlider
         sx={{
           background: `url(${carouselArr[idxObj].imageName}) !important`,
+          backgroundRepeat: "no-repeat !important",
+          backgroundSize: "cover",
         }}
       >
         <HomePageSlidesBoxText/>

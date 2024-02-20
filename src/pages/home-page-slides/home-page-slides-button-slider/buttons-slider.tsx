@@ -7,7 +7,7 @@ interface ButtonsSliderPropsModel {
 }
 
 const ButtonsSlider: FC<ButtonsSliderPropsModel> = ({ cart }) => {
-  const { idxObj, setIdxObj } = useContext(SlidesContext);
+  const { idxObj, setIdxObj, breakpointView } = useContext(SlidesContext);
 
   return (
     <BorderBox
@@ -22,6 +22,7 @@ const ButtonsSlider: FC<ButtonsSliderPropsModel> = ({ cart }) => {
       <ButtonSlider
         key={cart.key}
         variant="contained"
+        sx={breakpointView ? null : {backgroundColor:" #FF9A17 !important"}}
         onClick={() => setIdxObj(cart.key)}
       />
     </BorderBox>
