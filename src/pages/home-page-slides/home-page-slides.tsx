@@ -12,7 +12,7 @@ const HomePageSlides:FC = () => {
         sx={{
           background: `url(${carouselArr[idxObj].imageName}) !important`,
           backgroundRepeat: "no-repeat !important",
-          backgroundSize: "cover",
+          backgroundSize: "cover !important",
         }}
       >
         <HomePageSlidesBoxText/>
