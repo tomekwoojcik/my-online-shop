@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import {createContext, Dispatch, SetStateAction, useEffect, useState} from "react";
 import { PropsModel } from "../model/props-context-model";
 import { apiGetCategories, CategoriesModel } from "../api/api-get-categories";
 import { useMediaQuery } from "@mui/material";
@@ -7,7 +7,7 @@ import { MenuBoxObjModel, apiPath, helpCenterArr } from "../state/state";
 interface FooterContextModel {
   categories: CategoriesModel[] | undefined;
   helpCenterArr: MenuBoxObjModel[];
-  setHandleEmail: React.Dispatch<React.SetStateAction<string>>;
+  setHandleEmail: Dispatch<SetStateAction<string>>;
   getEmail: () => void;
   breakpointView: boolean;
 }
