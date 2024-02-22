@@ -8,7 +8,6 @@ import CartPage from "../pages/cart-page/cart-page";
 import CheckoutPage from "../pages/checkout-page/checkout-page";
 import OrderConfirmationPage from "../pages/order-confirmation-page/order-confirmation-page";
 import ProductPage from "../pages/product-page/product-page";
-import React from "react";
 
 export const router = createBrowserRouter([
   {

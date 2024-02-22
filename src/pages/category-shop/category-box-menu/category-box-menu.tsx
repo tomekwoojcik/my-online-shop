@@ -11,7 +11,6 @@ import {
   InfoDivCircle,
 } from "./category-box-menu.styled";
 import { useLoaderData } from "react-router-dom";
-import React from "react";
 
 export const CategoryBoxMenu = () => {
   const { handleButtonCategory, activeCategory } =
