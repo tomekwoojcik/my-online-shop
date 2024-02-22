@@ -11,6 +11,9 @@ export async function loader() {
   return category ;
 } 
 
+const load = loader()
+console.log(load);
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <RouterProvider router={router} />

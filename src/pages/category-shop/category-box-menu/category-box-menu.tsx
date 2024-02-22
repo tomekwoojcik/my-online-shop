@@ -11,14 +11,15 @@ import {
   InfoDivCircle,
 } from "./category-box-menu.styled";
 import { useLoaderData } from "react-router-dom";
+import React from "react";
 
 export const CategoryBoxMenu = () => {
   const { handleButtonCategory, activeCategory } =
     useContext(CategoryShopContext);
   const loadCategories = useLoaderData() as CategoriesModel[];
-  console.log(activeCategory);
+  console.log(loadCategories);
   return (
-    <CategoryInnerBoxMenuCustomize style={{}}>
+    <CategoryInnerBoxMenuCustomize>
       <CategoryBoxMenuHeader textHeader="Kategorie" />
       <ListMenu>
         {loadCategories.map((objCategory: CategoriesModel, index: number) => (
