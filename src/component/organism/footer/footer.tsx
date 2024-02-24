@@ -1,24 +1,24 @@
 import { Grid } from "@mui/material";
-import { FC, useContext } from "react";
+import { FC } from "react";
 import ContactBox from "../../molecules/contact-box/contact-box";
 import CategoryBox from "../../atom/category-box/category-box";
-import { FooterContext } from "../../../context/footer-context";
 import OtherMenuBox from "../../atom/other-menu-box/other-menu-box";
 import SubscriptionBox from "../../molecules/subscription-box/subscription-box";
 import { FooterBoxCustomize } from "./footer-customize";
 import { CategoriesModel } from "../../../api/api-get-categories";
+import { helpCenterArr } from "../../../state/state";
 
-interface FooterPropsModel{
+interface FooterPropsModel {
   categories: CategoriesModel[];
 }
 
-const Footer: FC<FooterPropsModel> = ({categories}) => {
-  const { helpCenterArr } = useContext(FooterContext);
+const Footer: FC<FooterPropsModel> = ({ categories }) => {
   return (
     <FooterBoxCustomize
       sx={{
         padding: {
-          md: "69px 79px !important" },
+          md: "69px 79px !important",
+        },
         width: { md: "calc( 100vw - 2*79px) !important" },
       }}
       component="footer"

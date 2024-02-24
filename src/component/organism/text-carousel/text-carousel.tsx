@@ -1,5 +1,4 @@
-import { FC, useContext } from "react";
-import { NavbarMenuContext } from "../../../context/navbar-menu-context";
+import { FC, useReducer } from "react";
 import { IconButton } from "@mui/material";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
@@ -9,10 +8,29 @@ import {
   CarouselBoxCustomize,
   TypographyCustomize,
 } from "./text-carousel.styled";
+import {
+  reducer,
+  initState,
+  REDUCER_ACTION_TYPE,
+} from "../../../reducer/navbar-reducer";
+import { stepperTextArr } from "../../../state/state";
 
 const TextCarousel: FC = () => {
-  const { stepperTextArr, handleNext, handlePrevious, state } =
-    useContext(NavbarMenuContext);
+  const [state, dispatch] = useReducer(reducer, initState);
+
+  const handleNext: VoidFunction = () => {
+    dispatch({
+      type: REDUCER_ACTION_TYPE.HANDLE_STEP,
+      payload: ++state.activeStep,
+    });
+  };
+
+  const handlePrevious: VoidFunction = () => {
+    dispatch({
+      type: REDUCER_ACTION_TYPE.HANDLE_STEP,
+      payload: --state.activeStep,
+    });
+  };
 
   return (
     <CarouselBoxCustomize>

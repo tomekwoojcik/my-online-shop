@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 export const initState = {
-  navbarSearchButtonToggle: true,
+  searchButtonToggle: true,
   activeStep: 0,
-  burgerToggle: false,
+  burgerToggle: true,
 };
 
 export enum REDUCER_ACTION_TYPE {
@@ -12,7 +12,7 @@ export enum REDUCER_ACTION_TYPE {
   HANDLE_BURGER_MENU,
 }
 
-type ReducerAction = {
+export type ReducerAction = {
   type: REDUCER_ACTION_TYPE;
   payload?: any;
 };
@@ -20,12 +20,13 @@ type ReducerAction = {
 export const reducer = (state: typeof initState, action: ReducerAction) => {
   switch (action.type) {
     case REDUCER_ACTION_TYPE.HANDLE_SEARCH_BUTTON:
-      return { ...state, navbarSearchButtonToggle: action.payload ?? false };
+      return { ...state, searchButtonToggle: !action.payload };
     case REDUCER_ACTION_TYPE.HANDLE_STEP:
       return { ...state, activeStep: action.payload ?? 0 };
     case REDUCER_ACTION_TYPE.HANDLE_BURGER_MENU:
-      return { ...state, burgerToggle: action.payload ?? false };
+      return { ...state, burgerToggle: !action.payload };
     default:
       throw new Error();
   }
 };
+

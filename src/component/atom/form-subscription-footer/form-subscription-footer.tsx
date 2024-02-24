@@ -1,11 +1,18 @@
-import { FC, useContext } from "react";
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-import { FormControlCustomize, TextFieldCustomize, IconButtonCustomize } from "./form-subscription-footer-customize";
-import { FooterContext } from "../../../context/footer-context";
-
+import { FC, useState } from "react";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import {
+  FormControlCustomize,
+  TextFieldCustomize,
+  IconButtonCustomize,
+} from "./form-subscription-footer-customize";
 
 const FormSubscriptionFooter: FC = () => {
-  const { setHandleEmail, getEmail } = useContext(FooterContext);
+  const [handleEmail, setHandleEmail] = useState<string>("");
+
+  const getEmail = (): void => {
+    handleEmail;
+  };
+
   return (
     <FormControlCustomize>
       <TextFieldCustomize
@@ -15,9 +22,9 @@ const FormSubscriptionFooter: FC = () => {
         color="secondary"
         onChange={(e) => setHandleEmail(e.target.value)}
       />
-          <IconButtonCustomize onClick={()=> getEmail()}>
-        <EmailOutlinedIcon color="secondary"/>
-      </IconButtonCustomize >
+      <IconButtonCustomize onClick={() => getEmail()}>
+        <EmailOutlinedIcon color="secondary" />
+      </IconButtonCustomize>
     </FormControlCustomize>
   );
 };
