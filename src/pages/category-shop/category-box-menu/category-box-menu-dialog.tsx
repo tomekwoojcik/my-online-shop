@@ -1,17 +1,23 @@
 import { Button, Dialog } from "@mui/material";
-import { useContext } from "react";
-
+import { useState } from "react";
 import TuneIcon from "@mui/icons-material/Tune";
 import { CategoryBoxMenuMobile } from "./category-box-menu-mobile";
-import { CategoryShopContext } from "../category-shop-context";
 export const CategoryDialog = () => {
-  const { open, handleClickOpen, handleClose } =
-    useContext(CategoryShopContext);
+  const [open, setOpen] = useState<boolean>(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <Button
         variant="text"
-        sx={{ color: "#0F2615", marginLeft:"10px" }}
+        sx={{ color: "#0F2615", marginLeft: "10px" }}
         onClick={handleClickOpen}
         startIcon={<TuneIcon />}
       >

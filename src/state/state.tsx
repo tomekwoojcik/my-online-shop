@@ -21,7 +21,7 @@ export const cartPath = "cart";
 export const checkoutPath = "checkout";
 export const orderConfirmationPath = "orderConfirmation";
 export const productPath = "product";
-
+export const breakpointViewState="(min-width: 768px)"
 
  export const stepperTextArr: StepperObjModel[] = [
     { key: 1, label: "Darmowa wysyłka powyżej 200 zł" },

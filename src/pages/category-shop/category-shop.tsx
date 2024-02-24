@@ -2,7 +2,7 @@ import { ThemeProvider } from "@mui/material";
 import { theme } from "../../context/theme-context";
 import CategoryBox from "./category-box/category-box";
 
-const CategoryShop = () => {
+const CategoryPage = () => {
   return (
     <ThemeProvider theme={theme}>
         <CategoryBox />
@@ -10,4 +10,4 @@ const CategoryShop = () => {
   );
 };
 
-export default CategoryShop;
+export default CategoryPage;
