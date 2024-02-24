@@ -23,7 +23,8 @@ export const MainPage: FC = () => {
       payload: state.burgerToggle,
     });
   };
-
+  
+  
   return (
     <ThemeProvider theme={theme}>
       <Grid className="container" container>
