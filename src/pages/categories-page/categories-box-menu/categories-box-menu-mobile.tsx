@@ -1,5 +1,5 @@
-import { CategoryBoxMenu } from "./category-box-menu";
-import { CategoryBoxMenuCustomize, LineCustomize, TypographyCategoryBoxMenuCustomize } from "./category-box-menu.styled";
+import { CategoryBoxMenu } from "./categories-box-menu";
+import { CategoryBoxMenuCustomize, LineCustomize, TypographyCategoryBoxMenuCustomize } from "./categories-box-menu.styled";
 
 export const CategoryBoxMenuMobile = () => {
   return (

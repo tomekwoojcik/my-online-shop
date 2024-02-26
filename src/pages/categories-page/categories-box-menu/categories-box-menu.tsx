@@ -1,29 +1,28 @@
 import { useContext } from "react";
 import { CategoriesModel } from "../../../api/api-get-categories";
-import CategoryBoxMenuHeader from "../category-box-menu-header/category-box-menu-header";
-import CategoryBoxMenuSlider from "../category-box-menu-slider/category-box-menu-slider";
-import { CategoryShopContext } from "../category-shop-context";
+import CategoryBoxMenuHeader from "../categories-box-menu-header/categories-box-menu-header";
+import CategoryBoxMenuSlider from "../categories-box-menu-slider/categories-box-menu-slider";
+import { CategoryShopContext } from "../categories-shop-context";
 import {
   CategoryInnerBoxMenuCustomize,
   ListMenu,
   ListItemMenuCustomize,
   ButtonMenuCategoryCustomize,
   InfoDivCircle,
-} from "./category-box-menu.styled";
+} from "./categories-box-menu.styled";
 import { useLoaderData } from "react-router-dom";
 
 export const CategoryBoxMenu = () => {
   const { handleButtonCategory, activeCategory } =
     useContext(CategoryShopContext);
   const loadCategories = useLoaderData() as CategoriesModel[];
-  console.log(loadCategories);
   return (
     <CategoryInnerBoxMenuCustomize>
       <CategoryBoxMenuHeader textHeader="Kategorie" />
       <ListMenu>
         {loadCategories.map((objCategory: CategoriesModel, index: number) => (
           <ListItemMenuCustomize
-            onClick={() => handleButtonCategory(index)}
+            onClick={() => handleButtonCategory(index, objCategory.name)}
             key={index}
           >
             <ButtonMenuCategoryCustomize

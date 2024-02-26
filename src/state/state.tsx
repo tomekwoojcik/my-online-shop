@@ -16,11 +16,15 @@ export interface StepperObjModel {
 export const apiPath: string = "https://lopi2-backend-5517f8f04d28.herokuapp.com/api/";
 
 export const mainPath = "/";
-export const categoryPath = "category";
+export const categoriesPath = "categories";
 export const cartPath = "cart";
 export const checkoutPath = "checkout";
 export const orderConfirmationPath = "orderConfirmation";
-export const productPath = "product";
+export const productPath = "products";
+export const singleProductPath = `${productPath}/:productId`;
+export const categoryPath = `:category`;
+
+
 
 
  export const stepperTextArr: StepperObjModel[] = [

@@ -1,14 +1,13 @@
-import { FC } from "react";
-import CategoryShop from "../category-shop/category-shop";
-import { CategoryShopProvider } from "../category-shop/category-shop-context";
+import { FC } from "react"
+import { useParams } from "react-router-dom"
 
-const CategoriesPage:FC = () => {
-  return(
-    <CategoryShopProvider>
-      <CategoryShop />
-    </CategoryShopProvider>)
-  ;
-};
+const CategoryPage: FC = () => {
+    const { category } = useParams();
+    return (
+        <div>
+            {category}
+        </div>
+    )
+}
 
-export default CategoriesPage;
-
+export default CategoryPage
