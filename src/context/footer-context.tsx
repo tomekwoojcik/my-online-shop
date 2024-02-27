@@ -1,5 +1,6 @@
 import {createContext, Dispatch, SetStateAction, useEffect, useState} from "react";
 import { PropsContextModel } from "../model/props-context-model";
+
 import { apiGetCategories, CategoriesModel } from "../api/api-get-categories";
 import { useMediaQuery } from "@mui/material";
 import { MenuBoxObjModel, apiPath, helpCenterArr } from "../state/state";
@@ -9,7 +10,7 @@ interface FooterContextModel {
   helpCenterArr: MenuBoxObjModel[];
   setHandleEmail: Dispatch<SetStateAction<string>>;
   getEmail: () => void;
-  breakpointView:boolean;
+  breakpointView: boolean;
 }
 
 export const FooterContext = createContext({} as FooterContextModel);
@@ -18,6 +19,7 @@ export const FooterProvider = ({ children }: PropsContextModel) => {
   const [handleEmail, setHandleEmail] = useState<string>("");
   const [categories, setCategories] = useState<CategoriesModel[] | undefined>();
   const breakpointView:boolean = useMediaQuery("(min-width:768px)")
+
   const getEmail = (): void => {
       handleEmail
   }
