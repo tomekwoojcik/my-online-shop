@@ -1,13 +1,16 @@
-import { FC, useContext } from "react";
+import { Dispatch, FC, } from "react";
 import { BorderBox, ButtonSlider } from "./buttons-slider.style";
-import { CarouselModel, SlidesContext } from "../home-page-slides-context";
+import { CarouselModel } from "../../../model/model";
 
 interface ButtonsSliderPropsModel {
   cart: CarouselModel;
+  idxObj: number,
+  setIdxObj:Dispatch<React.SetStateAction<number>>
+  
 }
 
-const ButtonsSlider: FC<ButtonsSliderPropsModel> = ({ cart }) => {
-  const { idxObj, setIdxObj } = useContext(SlidesContext);
+const ButtonsSlider: FC<ButtonsSliderPropsModel> = ({ cart, idxObj, setIdxObj }) => {
+  
 
   return (
     <BorderBox

@@ -1,14 +1,17 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import {
   BoxText,
   SmallParagraph,
   MainParagraph,
   ButtonBoxText,
 } from "./home-page-slides-box-text.style";
-import { SlidesContext } from "../home-page-slides-context";
+import { carouselArr } from "../../../state/state";
 
-const HomePageSlidesBoxText: FC = () => {
-  const { carouselArr, idxObj } = useContext(SlidesContext);
+interface HomePageSlidesBoxTextModel {
+  idxObj : number
+}
+
+const HomePageSlidesBoxText: FC<HomePageSlidesBoxTextModel> = ({idxObj}) => {
 
   return (
     <BoxText>

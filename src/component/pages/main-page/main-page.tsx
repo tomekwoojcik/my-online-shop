@@ -9,7 +9,6 @@ import { theme } from "../../../context/theme-context";
 import { Outlet, useLoaderData } from "react-router";
 import { CategoriesModel } from "../../../api/api-get-categories";
 import HomePageSlides from "../../../pages/home-page-slides/home-page-slides";
-import { SlidesProvider } from "../../../pages/home-page-slides/home-page-slides-context";
 
 export const MainPage: FC = () => {
   const category = useLoaderData() as CategoriesModel[];
@@ -24,9 +23,7 @@ export const MainPage: FC = () => {
           </NavbarMenuProvider>
         </Grid>
         <Grid item>
-          <SlidesProvider>
             <HomePageSlides />
-          </SlidesProvider>
           <Outlet />
         </Grid>
         <Grid className="footer" item>
