@@ -1,13 +1,12 @@
-import { FC, useContext } from "react";
-import { SlidesContext } from "./home-page-slides-context";
+import { FC } from "react";
 import HomePageSlides from "./home-page-slides";
 import HomePageSlidesMobile from "./home-page-slides-mobile-width";
+import { breakpointViewSize } from "../../state/state";
+import { useMediaQuery } from "@mui/material";
 
 const Slides: FC = () => {
-    const {breakpointView} = useContext(SlidesContext);
-    return (
-        breakpointView ? <HomePageSlides/> : <HomePageSlidesMobile/>
-    )
-}
+  const breakpointView: boolean = useMediaQuery(breakpointViewSize);
+  return breakpointView ? <HomePageSlides /> : <HomePageSlidesMobile />;
+};
 
 export default Slides;

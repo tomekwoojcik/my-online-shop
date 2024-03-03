@@ -1,17 +1,21 @@
-import { FC, useContext } from "react";
+import { Dispatch, FC } from "react";
 import {
   BoxTextMobile,
   SmallParagraph,
   MainParagraph,
   ButtonBoxText,
 } from "./home-page-slides-box-text-mobile.style";
-import { CarouselModel, SlidesContext } from "../home-page-slides-context";
 import ButtonsSlider from "../home-page-slides-button-slider/buttons-slider";
 import { ButtonsBox } from "../home-page-slides-mobile-width.style";
+import { CarouselModel } from "../../../model/model";
 
+interface HomePageSlidesBoxTextMobilePropsModel {
+  idxObj: number;
+  carouselArr: CarouselModel[];
+  setIdxObj:Dispatch<React.SetStateAction<number>>
+}
 
-const HomePageSlidesBoxTextMobile: FC = () => {
-  const { carouselArr, idxObj } = useContext(SlidesContext);
+const HomePageSlidesBoxTextMobile: FC<HomePageSlidesBoxTextMobilePropsModel> = ({idxObj, carouselArr, setIdxObj}) => {
 
   return (
     <BoxTextMobile>
@@ -27,7 +31,7 @@ const HomePageSlidesBoxTextMobile: FC = () => {
 
       <ButtonsBox>
         {carouselArr.map((cartObj: CarouselModel) => (
-          <ButtonsSlider key={cartObj.key} cart={cartObj} />
+          <ButtonsSlider idxObj={idxObj} setIdxObj={setIdxObj} key={cartObj.key} cart={cartObj} />
         ))}
       </ButtonsBox>
     </BoxTextMobile>

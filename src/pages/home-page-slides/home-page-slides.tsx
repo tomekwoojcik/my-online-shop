@@ -1,11 +1,13 @@
-import { FC, useContext } from "react";
-import { CarouselModel, SlidesContext } from "./home-page-slides-context";
+import { FC, useState } from "react";
 import ButtonsSlider from "./home-page-slides-button-slider/buttons-slider";
 import HomePageSlidesBoxText from "./home-page-slides-box-text/home-page-slides-box-text";
 import { BoxSlider, ButtonsBox, CartSlider } from "./home-page-slides.styled";
+import { carouselArr } from "../../state/state";
+import { CarouselModel } from "../../model/model";
 
-const HomePageSlides:FC = () => {
-  const { carouselArr, idxObj } = useContext(SlidesContext);
+const HomePageSlides: FC = () => {
+  const [idxObj, setIdxObj] = useState<number>(0);
+
   return (
     <BoxSlider>
       <CartSlider
@@ -15,10 +17,15 @@ const HomePageSlides:FC = () => {
           backgroundSize: "cover !important",
         }}
       >
-        <HomePageSlidesBoxText/>
+        <HomePageSlidesBoxText carouselArr={carouselArr} idxObj={idxObj} />
         <ButtonsBox>
           {carouselArr.map((cartObj: CarouselModel) => (
-              <ButtonsSlider key={cartObj.key} cart={cartObj} />
+            <ButtonsSlider
+              key={cartObj.key}
+              cart={cartObj}
+              idxObj={idxObj}
+              setIdxObj={setIdxObj}
+            />
           ))}
         </ButtonsBox>
       </CartSlider>

@@ -1,10 +1,9 @@
-import { FC, useContext } from "react";
+import { FC, useState } from "react";
 import { BoxSlider, CartSlider } from "./home-page-slides-mobile-width.style";
-import { SlidesContext } from "./home-page-slides-context";
 import HomePageSlidesBoxTextMobile from "./home-page-slides-box-text-mobile/home-page-slides-box-text-mobile";
-
+import { carouselArr } from "../../state/state";
 const HomePageSlidesMobile: FC = () => {
-  const { carouselArr, idxObj } = useContext(SlidesContext);
+  const [idxObj, setIdxObj] = useState<number>(0);
   return (
     <BoxSlider>
       <CartSlider
@@ -13,7 +12,7 @@ const HomePageSlidesMobile: FC = () => {
           backgroundSize: "cover !important",
         }}
       />
-      <HomePageSlidesBoxTextMobile />
+      <HomePageSlidesBoxTextMobile setIdxObj={setIdxObj} idxObj={idxObj} carouselArr={carouselArr} />
     </BoxSlider>
   );
 };

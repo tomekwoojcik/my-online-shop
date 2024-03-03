@@ -8,7 +8,6 @@ import { Grid, ThemeProvider } from "@mui/material";
 import { theme } from "../../../context/theme-context";
 import { Outlet, useLoaderData } from "react-router";
 import { CategoriesModel } from "../../../api/api-get-categories";
-import { SlidesProvider } from "../../../pages/home-page-slides/home-page-slides-context";
 import Slides from "../../../pages/home-page-slides/slides";
 
 export const MainPage: FC = () => {
@@ -24,9 +23,7 @@ export const MainPage: FC = () => {
           </NavbarMenuProvider>
         </Grid>
         <Grid item>
-          <SlidesProvider>
             <Slides/>
-          </SlidesProvider>
           <Outlet />
         </Grid>
         <Grid className="footer" item>
