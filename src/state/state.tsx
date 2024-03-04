@@ -24,8 +24,9 @@ export const productPath = "products";
 export const singleProductPath = `${productPath}/:productId`;
 export const categoryPath = `:category`;
 
+export const singleCategoryPath:string ="/categories/"
 
-
+export const ourUsString: string = "o nas";
 
  export const stepperTextArr: StepperObjModel[] = [
     { key: 1, label: "Darmowa wysyłka powyżej 200 zł" },

@@ -5,6 +5,7 @@ import { CategoriesModel } from "../../../api/api-get-categories";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { PopupButtonCustomize, MenuItemCustomize } from "./popup-menu.styled";
 import { useNavigate } from "react-router-dom";
+import { ourUsString, singleCategoryPath } from "../../../state/state";
 interface PopupMenuPropsModel {
   categoryName: string;
   categoriesObj: CategoriesModel[];
@@ -16,12 +17,10 @@ const PopupMenu: FC<PopupMenuPropsModel> = ({
 }) => {
   const nav = useNavigate();
   const handleNavigation = (categoryName: string): void => {
-    if (categoryName != "o nas") {
-      const pathUrl: string = `/categories/${categoryName}`;
-      console.log(pathUrl);
+    if (categoryName != ourUsString) {
+      const pathUrl: string = `${singleCategoryPath}${categoryName}`;
       nav(pathUrl);
     }
-    // nav(`/${categoryName}`);
   };
 
   return (
