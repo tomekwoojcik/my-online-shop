@@ -4,19 +4,19 @@ import { CarouselModel } from "../../../model/model";
 
 interface ButtonsSliderPropsModel {
   cart: CarouselModel;
-  idxObj: number,
-  setIdxObj:Dispatch<React.SetStateAction<number>>
+  activeObj: number;
+  setActiveObj: Dispatch<React.SetStateAction<number>>;
   
 }
 
-const ButtonsSlider: FC<ButtonsSliderPropsModel> = ({ cart, idxObj, setIdxObj }) => {
+const ButtonsSlider: FC<ButtonsSliderPropsModel> = ({ cart, activeObj, setActiveObj }) => {
   
-
+  
   return (
     <BorderBox
       sx={{
         border:
-          idxObj == cart.key
+          activeObj == cart.key
             ? " 1px solid #FF9A17 !important"
             : " 1px solid transparent !important",
       }}
@@ -25,7 +25,7 @@ const ButtonsSlider: FC<ButtonsSliderPropsModel> = ({ cart, idxObj, setIdxObj })
       <ButtonSlider
         key={cart.key}
         variant="contained"
-        onClick={() => setIdxObj(cart.key)}
+        onClick={() => setActiveObj(cart.key)}
       />
     </BorderBox>
   );
