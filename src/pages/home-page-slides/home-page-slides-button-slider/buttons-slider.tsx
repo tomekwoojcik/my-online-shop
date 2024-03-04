@@ -1,4 +1,4 @@
-import { Dispatch, FC, } from "react";
+import { Dispatch, FC } from "react";
 import { BorderBox, ButtonSlider } from "./buttons-slider.style";
 import { CarouselModel } from "../../../model/model";
 
@@ -6,12 +6,13 @@ interface ButtonsSliderPropsModel {
   cart: CarouselModel;
   activeObj: number;
   setActiveObj: Dispatch<React.SetStateAction<number>>;
-  
 }
 
-const ButtonsSlider: FC<ButtonsSliderPropsModel> = ({ cart, activeObj, setActiveObj }) => {
-  
-  
+const ButtonsSlider: FC<ButtonsSliderPropsModel> = ({
+  cart,
+  activeObj,
+  setActiveObj,
+}) => {
   return (
     <BorderBox
       sx={{
