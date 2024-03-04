@@ -10,28 +10,28 @@ import { ButtonsBox } from "../home-page-slides-mobile-width.style";
 import { CarouselModel } from "../../../model/model";
 
 interface HomePageSlidesBoxTextMobilePropsModel {
-  idxObj: number;
+  activeObj: number;
   carouselArr: CarouselModel[];
-  setIdxObj:Dispatch<React.SetStateAction<number>>
+  setActiveObj:Dispatch<React.SetStateAction<number>>
 }
 
-const HomePageSlidesBoxTextMobile: FC<HomePageSlidesBoxTextMobilePropsModel> = ({idxObj, carouselArr, setIdxObj}) => {
+const HomePageSlidesBoxTextMobile: FC<HomePageSlidesBoxTextMobilePropsModel> = ({activeObj, carouselArr, setActiveObj}) => {
 
   return (
     <BoxTextMobile>
       <SmallParagraph variant="subtitle1">
-        {carouselArr[idxObj].nameOfTheCafe}
+        {carouselArr[activeObj].nameOfTheCafe}
       </SmallParagraph>
       <MainParagraph variant="h1">
-        {carouselArr[idxObj].mainTitle}
+        {carouselArr[activeObj].mainTitle}
       </MainParagraph>
       <ButtonBoxText style={{backgroundColor:"#592D1D"}} variant="contained">
-        {carouselArr[idxObj].shortbuttonName}
+        {carouselArr[activeObj].shortbuttonName}
       </ButtonBoxText>
 
       <ButtonsBox>
         {carouselArr.map((cartObj: CarouselModel) => (
-          <ButtonsSlider idxObj={idxObj} setIdxObj={setIdxObj} key={cartObj.key} cart={cartObj} />
+          <ButtonsSlider activeObj={activeObj} setActiveObj={setActiveObj} key={cartObj.key} cart={cartObj} />
         ))}
       </ButtonsBox>
     </BoxTextMobile>

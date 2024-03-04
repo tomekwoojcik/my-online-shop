@@ -3,16 +3,16 @@ import { BoxSlider, CartSlider } from "./home-page-slides-mobile-width.style";
 import HomePageSlidesBoxTextMobile from "./home-page-slides-box-text-mobile/home-page-slides-box-text-mobile";
 import { carouselArr } from "../../state/state";
 const HomePageSlidesMobile: FC = () => {
-  const [idxObj, setIdxObj] = useState<number>(0);
+  const [activeObj, setActiveObj] = useState<number>(0);
   return (
     <BoxSlider>
       <CartSlider
         sx={{
-          background: `center url(${carouselArr[idxObj].imageName}) !important`,
+          background: `center url(${carouselArr[activeObj].imageName}) !important`,
           backgroundSize: "cover !important",
         }}
       />
-      <HomePageSlidesBoxTextMobile setIdxObj={setIdxObj} idxObj={idxObj} carouselArr={carouselArr} />
+      <HomePageSlidesBoxTextMobile setActiveObj={setActiveObj} activeObj={activeObj} carouselArr={carouselArr} />
     </BoxSlider>
   );
 };
