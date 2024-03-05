@@ -1,11 +1,26 @@
-import { useContext } from "react"
-import { CategoryShopContext } from "../category-shop-context"
+import { Box, Grid, styled } from "@mui/material";
 import { CategoryBoxMenu } from "../category-box-menu/category-box-menu";
-import { CategoryDialog } from "../category-box-menu/category-box-menu-dialog";
+import CategoryHeader from "../category-header/category-header";
+
+  const BoxStyled = styled(Box)`
+    flex-grow: 1;
+    background-color: #F2EFE9 !important;
+  `;
 
 const CategoryBox = () => {
-    const { breakpointView } = useContext(CategoryShopContext);
-    return breakpointView ? <CategoryBoxMenu/> : <CategoryDialog /> 
-}
 
-export default CategoryBox
+  return (
+    <BoxStyled>
+      <Grid container>
+        <Grid item xs={12}>
+          <CategoryHeader />
+        </Grid>
+        <Grid item>
+          <CategoryBoxMenu />
+        </Grid>
+      </Grid>
+    </BoxStyled>
+  );
+};
+
+export default CategoryBox;

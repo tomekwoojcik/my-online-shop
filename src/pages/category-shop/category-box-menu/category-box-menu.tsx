@@ -16,7 +16,6 @@ export const CategoryBoxMenu = () => {
   const { handleButtonCategory, activeCategory } =
     useContext(CategoryShopContext);
   const loadCategories = useLoaderData() as CategoriesModel[];
-  console.log(loadCategories);
   return (
     <CategoryInnerBoxMenuCustomize>
       <CategoryBoxMenuHeader textHeader="Kategorie" />

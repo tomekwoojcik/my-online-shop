@@ -1,8 +1,8 @@
 import axios from "axios";
-import { productModel } from "./api-product";
+import { ProductModel } from "./api-product";
 
-export interface productsModel {
-  products: productModel[];
+export interface ProductsModel {
+  products: ProductModel[];
   totalPages: number;
   totalProducts: number;
   hasPrevious: boolean;
@@ -14,10 +14,10 @@ export const apiProducts = async (
   numberOfPage: number = 0,
   sizeOfPage: number = 10,
   pageSortingType: string = "regularPrice,desc"
-): Promise<productsModel | undefined> => {
+): Promise<ProductsModel | undefined> => {
   const apiUrl: string = apiBase + "products";
   try {
-    const response = await axios.get<productsModel>(apiUrl, {
+    const response = await axios.get<ProductsModel>(apiUrl, {
       params: { page: numberOfPage, size: sizeOfPage, sort: pageSortingType },
     });
     return response.data;
