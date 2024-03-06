@@ -1,17 +1,18 @@
-import { Dispatch, FC, } from "react";
+import { Dispatch, FC } from "react";
 import { BorderBox, ButtonSlider } from "./buttons-slider.style";
+import { useMediaQuery } from "@mui/material";
+import { breakpointViewSize } from "../../../state/state";
 import { CarouselModel } from "../../../model/model";
 
 interface ButtonsSliderPropsModel {
   cart: CarouselModel;
   activeObj: number;
-  setActiveObj: Dispatch<React.SetStateAction<number>>;
-  
+  setActiveObj: Dispatch<React.SetStateAction<number>>
 }
 
 const ButtonsSlider: FC<ButtonsSliderPropsModel> = ({ cart, activeObj, setActiveObj }) => {
-  
-  
+
+   const breakpointView: boolean = useMediaQuery(breakpointViewSize);
   return (
     <BorderBox
       sx={{
@@ -25,6 +26,7 @@ const ButtonsSlider: FC<ButtonsSliderPropsModel> = ({ cart, activeObj, setActive
       <ButtonSlider
         key={cart.key}
         variant="contained"
+        sx={breakpointView ? null : {backgroundColor:" #FF9A17 !important"}}
         onClick={() => setActiveObj(cart.key)}
       />
     </BorderBox>

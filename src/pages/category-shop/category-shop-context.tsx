@@ -19,7 +19,6 @@ export const CategoryShopProvider = ({ children }: PropsContextModel) => {
 
   const [activeCategory, setActiveCategory] = useState<number | null>(null);
   const [open, setOpen] = useState<boolean>(false);
-  
 
   const handleClickOpen = () => {
     setOpen(true);

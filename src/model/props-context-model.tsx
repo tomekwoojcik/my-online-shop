@@ -1,3 +1,3 @@
-  export interface PropsContextModel{
+export interface PropsContextModel{
     children: JSX.Element | JSX.Element[]
 }

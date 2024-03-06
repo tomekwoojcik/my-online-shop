@@ -4,4 +4,5 @@ export interface CarouselModel {
     nameOfTheCafe: string;
     mainTitle: string;
     buttonName: string;
+    shortbuttonName: string;
 }

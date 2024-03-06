@@ -1,6 +1,6 @@
-import {createContext, Dispatch, SetStateAction, useEffect, useState} from "react";
-import { PropsContextModel } from "../model/props-context-model";
 
+import { PropsContextModel } from "../model/props-context-model";
+import {createContext, Dispatch, SetStateAction, useEffect, useState} from "react";
 import { apiGetCategories, CategoriesModel } from "../api/api-get-categories";
 import { useMediaQuery } from "@mui/material";
 import { MenuBoxObjModel, apiPath, helpCenterArr } from "../state/state";
