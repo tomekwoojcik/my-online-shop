@@ -22,8 +22,7 @@ export const MainPage: FC = () => {
       type: REDUCER_ACTION_TYPE.HANDLE_BURGER_MENU,
       payload: state.burgerToggle,
     });
-  };
-  
+  }; 
   
   return (
     <ThemeProvider theme={theme}>
