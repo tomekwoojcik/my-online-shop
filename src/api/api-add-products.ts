@@ -1,5 +1,5 @@
 import axios from "axios";
-import { productModel } from "./api-product";
+import { ProductModel } from "./api-product";
 
 interface setProductModel {
   name: string;
@@ -28,7 +28,7 @@ interface setProductModel {
 export const apiAddProducts = async (
   url: string,
   product: setProductModel
-): Promise<productModel | undefined> => {
+): Promise<ProductModel | undefined> => {
   const apiUrl = url + "products";
   try {
     const response = await axios.post(apiUrl, product);
