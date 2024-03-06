@@ -1,10 +1,10 @@
 import { createContext, useState } from "react";
-import { PropsModel } from "../../model/props-context-model";
+import { PropsContextModel } from "../../model/props-context-model";
 import { useMediaQuery } from "@mui/material";
 
 export type VoidFunction = () => void;
 
-interface PropsContextModel {
+interface PropsModel {
   handleButtonCategory: (arrIndex: number) => void;
   activeCategory: number | null;
   breakpointView: boolean;
@@ -13,9 +13,9 @@ interface PropsContextModel {
   open: boolean;
 }
 
-export const CategoryShopContext = createContext({} as PropsContextModel);
+export const CategoryShopContext = createContext({} as PropsModel);
 
-export const CategoryShopProvider = ({ children }: PropsModel) => {
+export const CategoryShopProvider = ({ children }: PropsContextModel) => {
 
   const [activeCategory, setActiveCategory] = useState<number | null>(null);
   const [open, setOpen] = useState<boolean>(false);

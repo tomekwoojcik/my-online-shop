@@ -9,21 +9,21 @@ import {
 
 interface HomePageSlidesBoxTextPropsModel {
   carouselArr: CarouselModel[];
-  idxObj: number;
+  activeObj: number;
 }
 
-const HomePageSlidesBoxText: FC<HomePageSlidesBoxTextPropsModel> = ({carouselArr, idxObj }) => {
+const HomePageSlidesBoxText: FC<HomePageSlidesBoxTextPropsModel> = ({carouselArr, activeObj }) => {
   
   return (
     <BoxText>
       <SmallParagraph variant="subtitle1">
-        {carouselArr[idxObj].nameOfTheCafe}
+        {carouselArr[activeObj].nameOfTheCafe}
       </SmallParagraph>
       <MainParagraph variant="h1">
-        {carouselArr[idxObj].mainTitle}
+        {carouselArr[activeObj].mainTitle}
       </MainParagraph>
       <ButtonBoxText color="secondary" variant="contained">
-        {carouselArr[idxObj].buttonName}
+        {carouselArr[activeObj].buttonName}
       </ButtonBoxText>
     </BoxText>
   );

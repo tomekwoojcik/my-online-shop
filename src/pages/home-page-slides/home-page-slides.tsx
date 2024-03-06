@@ -6,25 +6,25 @@ import { carouselArr } from "../../state/state";
 import { CarouselModel } from "../../model/model";
 
 const HomePageSlides: FC = () => {
-  const [idxObj, setIdxObj] = useState<number>(0);
+  const [activeObj, setActiveObj] = useState<number>(0);
 
   return (
     <BoxSlider>
       <CartSlider
         sx={{
-          background: `url(${carouselArr[idxObj].imageName}) !important`,
+          background: `url(${carouselArr[activeObj].imageName}) !important`,
           backgroundRepeat: "no-repeat !important",
           backgroundSize: "cover !important",
         }}
       >
-        <HomePageSlidesBoxText carouselArr={carouselArr} idxObj={idxObj} />
+        <HomePageSlidesBoxText carouselArr={carouselArr} activeObj={activeObj} />
         <ButtonsBox>
           {carouselArr.map((cartObj: CarouselModel) => (
             <ButtonsSlider
               key={cartObj.key}
               cart={cartObj}
-              idxObj={idxObj}
-              setIdxObj={setIdxObj}
+              activeObj={activeObj}
+              setActiveObj={setActiveObj}
             />
           ))}
         </ButtonsBox>

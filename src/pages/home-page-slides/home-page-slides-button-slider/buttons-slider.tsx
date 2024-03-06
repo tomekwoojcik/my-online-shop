@@ -7,7 +7,7 @@ import { CarouselModel } from "../../../model/model";
 interface ButtonsSliderPropsModel {
   cart: CarouselModel;
   activeObj: number;
-  setActiveObj:Dispatch<React.SetStateAction<number>>
+  setActiveObj: Dispatch<React.SetStateAction<number>>
 }
 
 const ButtonsSlider: FC<ButtonsSliderPropsModel> = ({ cart, activeObj, setActiveObj }) => {
