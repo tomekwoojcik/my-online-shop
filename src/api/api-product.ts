@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export interface productModel {
+export interface ProductModel {
   name: string;
   sku: string;
   regularPrice: number;
@@ -35,10 +35,10 @@ export interface productModel {
 export const apiProduct = async (
   Uuid: string,
   url: string
-): Promise<productModel | undefined> => {
+): Promise<ProductModel | undefined> => {
   const apiUrl: string = url + "product";
   try {
-    const response = await axios.get<productModel>(apiUrl, {
+    const response = await axios.get<ProductModel>(apiUrl, {
       params: {
         productUuid: Uuid,
       },
