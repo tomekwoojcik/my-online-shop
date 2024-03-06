@@ -4,7 +4,7 @@ import { useMediaQuery } from "@mui/material";
 
 export type VoidFunction = () => void;
 
-interface PropsModel {
+interface ContextModel {
   handleButtonCategory: (arrIndex: number) => void;
   activeCategory: number | null;
   breakpointView: boolean;
@@ -13,13 +13,12 @@ interface PropsModel {
   open: boolean;
 }
 
-export const CategoryShopContext = createContext({} as PropsModel);
+export const CategoryShopContext = createContext({} as ContextModel);
 
 export const CategoryShopProvider = ({ children }: PropsContextModel) => {
 
   const [activeCategory, setActiveCategory] = useState<number | null>(null);
   const [open, setOpen] = useState<boolean>(false);
-  
 
   const handleClickOpen = () => {
     setOpen(true);

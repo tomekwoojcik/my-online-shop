@@ -30,3 +30,4 @@ const HomePageSlidesBoxText: FC<HomePageSlidesBoxTextPropsModel> = ({carouselArr
 };
 
 export default HomePageSlidesBoxText;
+

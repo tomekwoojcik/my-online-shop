@@ -13,7 +13,6 @@ interface ButtonsSliderPropsModel {
 const ButtonsSlider: FC<ButtonsSliderPropsModel> = ({ cart, activeObj, setActiveObj }) => {
 
    const breakpointView: boolean = useMediaQuery(breakpointViewSize);
-
   return (
     <BorderBox
       sx={{

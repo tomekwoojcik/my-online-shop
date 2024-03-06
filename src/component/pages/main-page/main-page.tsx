@@ -10,6 +10,7 @@ import { Outlet, useLoaderData } from "react-router";
 import { CategoriesModel } from "../../../api/api-get-categories";
 import Slides from "../../../pages/home-page-slides/slides";
 
+
 export const MainPage: FC = () => {
   const category = useLoaderData() as CategoriesModel[];
 

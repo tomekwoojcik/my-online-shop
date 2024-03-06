@@ -78,6 +78,8 @@ export const helpCenterArr: MenuBoxObjModel[] = [
   },
 ];
 
+export const breakpointViewSize: string = "(min-width: 768px)";
+
 import slider1 from "../assets/slider-component/slider1.png";
 import slider2 from "../assets/slider-component/slider2.png";
 import slider3 from "../assets/slider-component/slider3.png";
@@ -109,5 +111,3 @@ export const carouselArr: CarouselModel[] = [
     shortbuttonName: "Odwiedź",
   },
 ];
-
-export const breakpointViewSize: string = "(min-width: 768px)";

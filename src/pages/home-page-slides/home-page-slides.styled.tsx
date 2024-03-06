@@ -11,16 +11,15 @@ export const CartSlider = styled(Box)`
   height: 803px !important;
   display: flex;
   flex-direction: column;
-  background-size: cover !important;
+  background-size: cover !important; 
 `;
 
 export const ButtonsBox = styled(Box)`
   width: 70px;
   height: 25px;
-  display: flex;
+  display: flex !important;
   flex-direction: row;
   justify-content: space-between;
-  display: flex !important;
   align-self: center;
-  margin-top: 165px;
 `;
+

@@ -18,7 +18,8 @@ export const FooterContext = createContext({} as FooterContextModel);
 export const FooterProvider = ({ children }: PropsContextModel) => {
   const [handleEmail, setHandleEmail] = useState<string>("");
   const [categories, setCategories] = useState<CategoriesModel[] | undefined>();
-  const breakpointView: boolean = useMediaQuery("768px")
+  const breakpointView:boolean = useMediaQuery("(min-width:768px)")
+
   const getEmail = (): void => {
       handleEmail
   }

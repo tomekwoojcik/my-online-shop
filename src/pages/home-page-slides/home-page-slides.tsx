@@ -2,12 +2,11 @@ import { FC, useState } from "react";
 import ButtonsSlider from "./home-page-slides-button-slider/buttons-slider";
 import HomePageSlidesBoxText from "./home-page-slides-box-text/home-page-slides-box-text";
 import { BoxSlider, ButtonsBox, CartSlider } from "./home-page-slides.styled";
-import { carouselArr } from "../../state/state";
+
 import { CarouselModel } from "../../model/model";
-
+import { carouselArr } from "../../state/state";
 const HomePageSlides: FC = () => {
-  const [activeObj, setActiveObj] = useState<number>(0);
-
+      const [activeObj, setActiveObj] = useState<number>(0);
   return (
     <BoxSlider>
       <CartSlider
@@ -32,4 +31,5 @@ const HomePageSlides: FC = () => {
     </BoxSlider>
   );
 };
+
 export default HomePageSlides;
