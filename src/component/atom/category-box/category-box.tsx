@@ -1,7 +1,7 @@
 import { FC } from "react";
+import { CategoriesModel } from "../../../api/api-get-categories";
 import HeadingFooter from "../heading-footer/heading-footer";
 import { BoxCustomize, ListCustomize, ButtonCustomize } from "./category-box-customize";
-import { CategoriesModel } from "../../../api/api-get-categories";
 
 interface CategoriesBoxProps{
   categories: CategoriesModel[];

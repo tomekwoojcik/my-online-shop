@@ -11,6 +11,7 @@ import {
   initState,
   reducer,
 } from "../../../reducer/navbar-reducer";
+import Slides from "../../../pages/home-page-slides/slides";
 
 export const MainPage: FC = () => {
   const category = useLoaderData() as CategoriesModel[];
@@ -42,6 +43,7 @@ export const MainPage: FC = () => {
           />
         </Grid>
         <Grid item>
+            <Slides/>
           <Outlet />
         </Grid>
         <Grid className="footer" item>
