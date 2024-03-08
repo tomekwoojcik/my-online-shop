@@ -2,8 +2,8 @@ import { Button, Dialog } from "@mui/material";
 import { useContext } from "react";
 
 import TuneIcon from "@mui/icons-material/Tune";
-import { CategoryBoxMenuMobile } from "./category-box-menu-mobile";
-import { CategoryShopContext } from "../category-shop-context";
+import { CategoryBoxMenuMobile } from "./categories-box-menu-mobile";
+import { CategoryShopContext } from "../categories-shop-context";
 export const CategoryDialog = () => {
   const { open, handleClickOpen, handleClose } =
     useContext(CategoryShopContext);
