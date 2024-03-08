@@ -1,9 +1,7 @@
-
-import { useContext } from "react";
+import { FC } from "react";
 import { CategoriesModel } from "../../../api/api-get-categories";
 import CategoryBoxMenuHeader from "../categories-box-menu-header/categories-box-menu-header";
 import CategoryBoxMenuSlider from "../categories-box-menu-slider/categories-box-menu-slider";
-import { CategoryShopContext } from "../categories-shop-context";
 import {
   CategoryInnerBoxMenuCustomize,
   ListMenu,
@@ -13,9 +11,12 @@ import {
 } from "./categories-box-menu.styled";
 import { useLoaderData } from "react-router-dom";
 
-export const CategoryBoxMenu = () => {
-  const { handleButtonCategory, activeCategory } =
-    useContext(CategoryShopContext);
+interface CategoryBoxMenuPropsModel {
+  activeCategory: number | null;
+  handleButtonCategory:(arrIndex: number, endPath: string) =>void
+}
+
+export const CategoryBoxMenu: FC<CategoryBoxMenuPropsModel> = ({activeCategory, handleButtonCategory}) => {
   const loadCategories = useLoaderData() as CategoriesModel[];
   return (
     <CategoryInnerBoxMenuCustomize>

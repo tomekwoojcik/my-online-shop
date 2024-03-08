@@ -23,9 +23,7 @@ export const checkoutPath = "checkout";
 export const orderConfirmationPath = "orderConfirmation";
 export const productPath = "products";
 export const singleProductPath = `${productPath}/:productId`;
-export const categoryPath = `:category`;
-
-export const singleCategoryPath:string ="/categories/"
+export const singleCategoryPath: string =`${categoriesPath}/:category`;
 
 export const ourUsString: string = "o nas";
 

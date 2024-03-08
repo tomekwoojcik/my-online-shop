@@ -1,11 +1,33 @@
-import { useContext } from "react"
-import { CategoryShopContext } from "../categories-shop-context"
-import { CategoryBoxMenu } from "../categories-box-menu/categories-box-menu";
+import { FC, useState } from "react";
+import { breakpointViewSize } from "../../../state/state";
+import { useMediaQuery } from "@mui/material";
+import { NavigateFunction, Outlet, useNavigate } from "react-router-dom";
+import { CategoryBoxMenu } from "../../categories-page/categories-box-menu/categories-box-menu";
 import { CategoryDialog } from "../categories-box-menu/categories-box-menu-dialog";
 
-const CategoryBox = () => {
-    const { breakpointView } = useContext(CategoryShopContext);
-    return breakpointView ? <CategoryBoxMenu/> : <CategoryDialog /> 
-}
+const CategoryBox: FC = () => {
+  const [activeCategory, setActiveCategory] = useState<number | null>(null);
+  const nav: NavigateFunction = useNavigate();
+  const handleButtonCategory = (arrIndex: number, endPath: string) => {
+    setActiveCategory(arrIndex);
+    nav(endPath.toLowerCase());
+  };
 
-export default CategoryBox
+  return (
+    <>
+      {useMediaQuery(breakpointViewSize) ? (
+        <CategoryBoxMenu
+          activeCategory={activeCategory}
+          handleButtonCategory={handleButtonCategory}
+        />
+      ) : (
+        <CategoryDialog
+          activeCategory={activeCategory}
+          handleButtonCategory={handleButtonCategory}
+        />
+      )}
+      <Outlet />
+    </>
+  );
+};
+export default CategoryBox;
