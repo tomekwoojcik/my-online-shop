@@ -42,6 +42,12 @@ export const router = createBrowserRouter([
           },
         ],
       },
+      // {
+      //   path: singleCategoryPath,
+      //   element: <CategoryPage />,
+      //   errorElement: <ErrorPage />,
+      //   loader: loader,
+      // },
 
       {
         path: cartPath,

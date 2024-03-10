@@ -1,23 +1,33 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import { IconButton } from "@mui/material";
+import { IconButton, useMediaQuery } from "@mui/material";
 import { BadgeCustomize, NavBarBoxCustomize } from "./navbar-menu-right.styled";
 import SearchIcon from "../../atom/search-Icon/search-icon";
-import { NavbarMenuContext } from "../../../context/navbar-menu-context";
 import TextFieldNavbar from "../../atom/text-field-navbar/text-field-navbar";
-interface NavbarPropsModel {
-  breakpointView: boolean;
+import { breakpointViewSize } from "../../../state/state";
+
+interface NavbarMenuRightPropsModel {
+  state: {
+    navbarSearchButtonToggle: boolean;
+    activeStep: number;
+    burgerToggle: boolean;
+  };
+    updateSearchButtonState: (value: boolean) => void;
+
 }
 
-const NavbarMenuRight: FC<NavbarPropsModel> = ({ breakpointView }) => {
-  const { state } = useContext(NavbarMenuContext);
+const NavbarMenuRight: FC<NavbarMenuRightPropsModel> = ({ state, updateSearchButtonState }) => {
   return (
     <NavBarBoxCustomize sx={{ display: { xs: "flex" } }}>
-      {breakpointView ? (
-        state.navbarSearchButtonToggle ? <SearchIcon/> : <TextFieldNavbar/>
-      ): null}
+      {useMediaQuery(breakpointViewSize) ? (
+        state.navbarSearchButtonToggle ? (
+          <SearchIcon updateSearchButtonState={updateSearchButtonState} />
+        ) : (
+          <TextFieldNavbar updateSearchButtonState={updateSearchButtonState} />
+        )
+      ) : null}
       <IconButton aria-label="cart">
         <PersonOutlinedIcon />
       </IconButton>

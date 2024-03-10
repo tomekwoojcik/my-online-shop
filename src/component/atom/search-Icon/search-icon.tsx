@@ -1,10 +1,12 @@
 import { IconButton } from "@mui/material";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import { FC, useContext } from "react";
-import { NavbarMenuContext } from "../../../context/navbar-menu-context";
+import { FC } from "react";
 
-const SearchIcon: FC = () => {
-  const { updateSearchButtonState } = useContext(NavbarMenuContext);
+interface SearchIconPropsModel {
+  updateSearchButtonState: (value: boolean) => void;
+}
+
+const SearchIcon: FC<SearchIconPropsModel> = ({ updateSearchButtonState }) => {
   return (
     <IconButton
       aria-label="cart"

@@ -1,19 +1,22 @@
 import { Grid } from "@mui/material";
-import { FC, useContext } from "react";
+import { FC, useState } from "react";
 import ContactBox from "../../molecules/contact-box/contact-box";
 import CategoryBox from "../../atom/category-box/category-box";
-import { FooterContext } from "../../../context/footer-context";
 import OtherMenuBox from "../../atom/other-menu-box/other-menu-box";
 import SubscriptionBox from "../../molecules/subscription-box/subscription-box";
 import { FooterBoxCustomize } from "./footer-customize";
 import { CategoriesModel } from "../../../api/api-get-categories";
+import { helpCenterArr } from "../../../state/state";
 
 interface FooterPropsModel{
   categories: CategoriesModel[];
 }
 
-const Footer: FC<FooterPropsModel> = ({categories}) => {
-  const { helpCenterArr } = useContext(FooterContext);
+const Footer: FC<FooterPropsModel> = ({ categories }) => {
+    const [handleEmail, setHandleEmail] = useState<string>("");
+     const getEmail = (): void => {
+      handleEmail
+  }
   return (
     <FooterBoxCustomize
       sx={{
@@ -45,7 +48,7 @@ const Footer: FC<FooterPropsModel> = ({categories}) => {
         <Grid xs={0} md={2} item />
 
         <Grid xs={12} md={2} item>
-          <SubscriptionBox />
+          <SubscriptionBox getEmail={getEmail} setHandleEmail={setHandleEmail} />
         </Grid>
       </Grid>
     </FooterBoxCustomize>
