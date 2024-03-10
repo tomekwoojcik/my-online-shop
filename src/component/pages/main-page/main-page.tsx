@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { Navbar } from "../../organism/navbar/navbar";
-import { NavbarMenuProvider } from "../../../context/navbar-menu-context";
 import BoxSliderMenu from "../../organism/box-slider-menu/box-slider-menu";
 import Footer from "../../organism/footer/footer";
 import { Grid, ThemeProvider } from "@mui/material";
@@ -16,10 +15,8 @@ export const MainPage: FC = () => {
     <ThemeProvider theme={theme}>
       <Grid className="container" container>
         <Grid item>
-          <NavbarMenuProvider>
-            <Navbar categories={category} />
-            <BoxSliderMenu categories={category} />
-          </NavbarMenuProvider>
+          <Navbar categories={category} />
+          <BoxSliderMenu categories={category} />
         </Grid>
         <Grid item>
           <Slides />
