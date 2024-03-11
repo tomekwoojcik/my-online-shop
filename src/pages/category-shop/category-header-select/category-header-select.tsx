@@ -3,7 +3,7 @@ import { FC } from "react";
 import { SelectHeaderModel, selectValueHeader } from "../../../state/state";
 
 interface CategoryHeaderSelectPropsModel {
-  value: object;
+  value: SelectHeaderModel;
   handleChangeSelect: (valueObj: SelectHeaderModel) => void;
 }
 
@@ -17,13 +17,21 @@ const CategoryHeaderSelect: FC<CategoryHeaderSelectPropsModel> = ({
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
-        value={value}
+        defaultValue=""
+        value={value.labelText}
         label="Sortowanie"
-        style={{ width: "125px" }}
+        onChange={(event) => {
+          const selectedValue = event.target.value as string;
+          const selectedOption = selectValueHeader.find((option) => option.labelText === selectedValue);
+          if (selectedOption) {
+            handleChangeSelect(selectedOption);
+          }
+        }}
+        style={{ width: "150px" }}
       >
         {selectValueHeader.map((obj: SelectHeaderModel, idx: number) => {
           return (
-            <MenuItem onClick={()=> handleChangeSelect(obj)} value={obj.value} key={idx}>
+            <MenuItem value={obj.labelText} key={idx}>
               {obj.labelText}
             </MenuItem>
           );
