@@ -42,6 +42,9 @@ export const productPath = "product";
   }
   ]
 
+export const breakpointViewSize: string = "(min-width: 768px)";
+export const breakpointViewSizeHeader: string = "(min-width: 1024px)";
+
 
 export const helpCenterArr: MenuBoxObjModel[] = [
     {
@@ -76,4 +79,30 @@ export const helpCenterArr: MenuBoxObjModel[] = [
         },
       ],
     },
-  ];
+];
+
+export interface SelectHeaderModel{
+  value: string;
+  labelText: string;
+}
+  
+export const selectValueHeader: SelectHeaderModel[] = [
+  {
+    value: "a",
+    labelText:"Cena rosnąco"
+  },
+  {
+    value: "b",
+    labelText:"Cena malejąco"
+  },
+  {
+    value: "a",
+    labelText:"Od A do Z"
+  },
+  {
+    value: "b",
+    labelText:"Od Z do A"
+  },
+]
+
+
