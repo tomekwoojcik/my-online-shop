@@ -9,7 +9,7 @@ export interface ProductsModel {
   hasNext: boolean;
 }
 
-export const apiProducts = async (
+export const apiGetProducts = async (
   apiBase: string,
   numberOfPage: number = 0,
   sizeOfPage: number = 10,
