@@ -11,6 +11,13 @@ interface CategoriesBoxProductsInfoPropsModel {
   discountDate: Date;
 }
 
+const BoxProductsInfo = styled(Box)`
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  margin-top: 10px !important;
+`;
+
 const BoxRating = styled(Box)`
   display: flex;
   flex-direction: row;
@@ -25,7 +32,6 @@ const TypographySpan = styled(Typography)`
   line-height: 16px !important;
   letter-spacing: 0em !important;
   text-align: center !important;
-  margin-left: 5px !important;
 `;
 
 const TypographyTitle = styled(Typography)`
@@ -35,6 +41,10 @@ const TypographyTitle = styled(Typography)`
   line-height: 26px !important;
   letter-spacing: 0em !important;
   color: #0f2615 !important;
+  text-align: left !import;
+  text-transform: none !important;
+  margin: 5px 0 !important;
+  
 `;
 
 const BoxPrice = styled(Box)`
@@ -80,7 +90,7 @@ const CategoriesBoxProductsInfo: FC<CategoriesBoxProductsInfoPropsModel> = ({
   const currentDate = new Date();
   const discountEndDate = new Date(discountDate);
   return (
-    <div>
+    <BoxProductsInfo>
       <BoxRating>
         <Rating
           value={currentValue}
@@ -90,7 +100,9 @@ const CategoriesBoxProductsInfo: FC<CategoriesBoxProductsInfoPropsModel> = ({
             <StarIcon style={{ color: "#C9CDC7" }} fontSize="inherit" />
           }
         />
-        <TypographySpan variant="subtitle1">({currentValue})</TypographySpan>
+        <TypographySpan variant="subtitle1">
+          {currentValue != 0 ? `(${currentValue})` : "no rewievs"}
+        </TypographySpan>
       </BoxRating>
       <TypographyTitle variant="h5">{productName}</TypographyTitle>
 
@@ -106,7 +118,7 @@ const CategoriesBoxProductsInfo: FC<CategoriesBoxProductsInfoPropsModel> = ({
           </TypographyDiscountPrice>
         </BoxPrice>
       )}
-    </div>
+    </BoxProductsInfo>
   );
 };
 

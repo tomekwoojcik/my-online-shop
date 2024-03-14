@@ -1,19 +1,23 @@
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import { FC } from "react";
 import styled from "styled-components";
+import { breakpointViewSize } from "../../../state/state";
 const InfoDiscountBox = styled(Box)`
   font-family: Outfit;
-  font-size: 14px;
   font-weight: 400;
-  line-height: 25px;
   letter-spacing: 0em;
   text-align: center;
-  color: #ffffff;
-  width: 60px;
-  height: 25px;
+  color: #ffffff !important;
   background-color: #ff9a16;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
 `;
 
+const EmptyDiscountBox = styled(Box)`
+  width: 40px;
+  height: 20px;
+`;
 interface InfoDiscountPropsModel {
   discountPrice: number;
   regularPrice: number;
@@ -25,13 +29,11 @@ const InfoDiscount: FC<InfoDiscountPropsModel> = ({
   regularPrice,
   discountPriceEndDate,
 }) => {
+  const breakpoint: boolean = useMediaQuery(breakpointViewSize);
   const currentDay = new Date();
   const discountEndDay = new Date(discountPriceEndDate);
   const discountPercentage = (discountPrice: number, regularPrice: number) => {
-    if (
-      discountPrice != null &&
-      regularPrice != null 
-    ) {
+    if (discountPrice != null && regularPrice != null) {
       const discountPercentage: number =
         (discountPrice * 100) / regularPrice - 100;
       return `${discountPercentage}%`;
@@ -39,12 +41,27 @@ const InfoDiscount: FC<InfoDiscountPropsModel> = ({
   };
   return (
     <>
-      {(discountPriceEndDate != null &&
-        currentDay < discountEndDay) ? (
-        <InfoDiscountBox>
+      {discountPriceEndDate != null && currentDay < discountEndDay ? (
+        <InfoDiscountBox
+          sx={
+            breakpoint
+              ? {
+                  fontSize: "14px",
+                  width: "60px !important",
+                  height: "25px !important",
+                }
+              : {
+                  fontSize: "10px",
+                  width: "40px !important",
+                  height: "20px !important",
+                }
+          }
+        >
           {discountPercentage(discountPrice, regularPrice)}
         </InfoDiscountBox>
-      ) : null}
+      ) : (
+        <EmptyDiscountBox />
+      )}
     </>
   );
 };
