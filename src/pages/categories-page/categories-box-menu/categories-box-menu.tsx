@@ -13,10 +13,15 @@ import { useLoaderData } from "react-router-dom";
 
 interface CategoryBoxMenuPropsModel {
   activeCategory: number | null;
-  handleButtonCategory:(arrIndex: number, endPath: string) =>void
+  handleButtonCategory: (arrIndex: number, endPath: string) => void;
 }
 
-export const CategoryBoxMenu: FC<CategoryBoxMenuPropsModel> = ({activeCategory, handleButtonCategory}) => {
+export const CategoryBoxMenu: FC<CategoryBoxMenuPropsModel> = ({
+  activeCategory,
+  handleButtonCategory,
+}) => {
+  const currentPath:string = window.location.pathname
+  const endPartPath:string = currentPath.slice(12, currentPath.length);
   const loadCategories = useLoaderData() as CategoriesModel[];
   return (
     <CategoryInnerBoxMenuCustomize>
@@ -34,12 +39,12 @@ export const CategoryBoxMenu: FC<CategoryBoxMenuPropsModel> = ({activeCategory, 
                 flexDirection: "row",
                 justifyContent: "space-between",
                 alignItems: "center",
-                color: activeCategory == index ? "#FF9A17" : "#4B5945",
+                color: activeCategory == index || endPartPath == objCategory.name.toLowerCase() ? "#FF9A17" : "#4B5945",
               }}
               endIcon={
                 <InfoDivCircle
                   style={{
-                    color: activeCategory == index ? "#FF9A17" : "#4B5945",
+                    color: activeCategory == index || endPartPath == objCategory.name.toLowerCase() ? "#FF9A17" : "#4B5945",
                   }}
                 >
                   {objCategory.subcategories.length}

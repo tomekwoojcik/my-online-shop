@@ -70,7 +70,12 @@ const CategoriesBoxProducts: FC = () => {
         container
       >
         {productsArr.map((productObj: ProductModel, idx: number) => (
-          <Grid item key={idx} xs={initialQuantityOfProductsFullView} lg={initialQuantityOfProductsMobileView}>
+          <Grid
+            item
+            key={idx}
+            xs={initialQuantityOfProductsFullView}
+            lg={initialQuantityOfProductsMobileView}
+          >
             <CategoriesBoxProductsCart
               breakpoint={breakpoint}
               imgSrc={adventure}
@@ -82,9 +87,9 @@ const CategoriesBoxProducts: FC = () => {
       <CategoriesBoxProductsBoxButton
         breakpoint={breakpoint}
         hasNext={!productsObj?.hasNext}
+        hasPrevious={!productsObj?.hasPrevious}
         setPage={setPage}
         page={page}
-        hasPrevious={!productsObj?.hasPrevious}
       />
     </>
   );
