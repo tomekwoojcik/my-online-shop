@@ -15,7 +15,6 @@ const BoxProductsInfo = styled(Box)`
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
-  margin-top: 10px !important;
 `;
 
 const BoxRating = styled(Box)`
