@@ -1,5 +1,6 @@
 import { Box, Button } from "@mui/material";
 import { Dispatch, FC } from "react";
+import { initialWidthProduct, initialWidthProductMobile } from "../../../state/state";
 
 interface CategoriesBoxProductsBoxButtonPropsModel{
     breakpoint: boolean;
@@ -12,7 +13,7 @@ interface CategoriesBoxProductsBoxButtonPropsModel{
 const CategoriesBoxProductsBoxButton:FC<CategoriesBoxProductsBoxButtonPropsModel> = ({breakpoint,hasNext, hasPrevious, setPage, page}) => {
     return (
         <Box sx={{
-          width: breakpoint ? "72.9% !important" : "100% important",
+          width: breakpoint ? initialWidthProduct : initialWidthProductMobile,
           display:"flex",
         }}>
         <Button

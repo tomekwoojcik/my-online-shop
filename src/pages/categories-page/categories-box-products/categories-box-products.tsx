@@ -1,11 +1,16 @@
-import {
-  Grid,
-  useMediaQuery,
-} from "@mui/material";
+import { Grid, useMediaQuery } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import { ProductsModel, apiGetProducts } from "../../../api/api-get-products";
-import { apiPath, breakpointViewSize } from "../../../state/state";
+import {
+  apiPath,
+  breakpointViewSize,
+  initialProductStatus,
+  initialQuantityOfProductsFullView,
+  initialQuantityOfProductsMobileView,
+  initialWidthProduct,
+  initialWidthProductMobile,
+} from "../../../state/state";
 import { ProductModel } from "../../../api/api-product";
 import adventure from "../../../assets/products/ethiopia/adventure.png";
 import CategoriesBoxProductsFormControl from "./categories-box-products-form-control";
@@ -21,7 +26,9 @@ const ProductsBox = styled(Grid)`
 
 const CategoriesBoxProducts: FC = () => {
   const breakpoint = useMediaQuery(breakpointViewSize);
-  const startProductOfPage: number = breakpoint ? 6 : 4;
+  const startProductOfPage: number = breakpoint
+    ? initialQuantityOfProductsFullView
+    : initialQuantityOfProductsMobileView;
   const [numberOfProductsOnThePage, setNumberOfProductsOnThePage] =
     useState<number>(startProductOfPage);
   const [productsArr, setProductsArr] = useState<ProductModel[] | []>([]);
@@ -37,7 +44,7 @@ const CategoriesBoxProducts: FC = () => {
       );
       if (productsObj) {
         const filteredProducts = productsObj.products.filter(
-          (obj: ProductModel) => obj.status === "ACTIVE"
+          (obj: ProductModel) => obj.status === initialProductStatus
         );
         setProductsObj(productsObj);
         setProductsArr(filteredProducts);
@@ -54,7 +61,7 @@ const CategoriesBoxProducts: FC = () => {
       />
       <ProductsBox
         sx={{
-          width: breakpoint ? "72.9% !important" : "100% important",
+          width: breakpoint ? initialWidthProduct : initialWidthProductMobile,
           paddingRight: "20px",
         }}
         xs={12}
@@ -63,8 +70,12 @@ const CategoriesBoxProducts: FC = () => {
         container
       >
         {productsArr.map((productObj: ProductModel, idx: number) => (
-          <Grid item key={idx} xs={6} lg={4}>
-            <CategoriesBoxProductsCart breakpoint={breakpoint} imgSrc={adventure} productObj={productObj} />
+          <Grid item key={idx} xs={initialQuantityOfProductsFullView} lg={initialQuantityOfProductsMobileView}>
+            <CategoriesBoxProductsCart
+              breakpoint={breakpoint}
+              imgSrc={adventure}
+              productObj={productObj}
+            />
           </Grid>
         ))}
       </ProductsBox>
