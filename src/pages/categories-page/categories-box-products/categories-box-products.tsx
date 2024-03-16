@@ -64,6 +64,7 @@ const CategoriesBoxProducts: FC = () => {
           width: breakpoint ? initialWidthProduct : initialWidthProductMobile,
           paddingRight: "20px",
         }}
+        item
         xs={12}
         rowSpacing={4}
         columnSpacing={1}
