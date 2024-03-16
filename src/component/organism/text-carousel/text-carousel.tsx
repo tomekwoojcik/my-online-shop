@@ -1,5 +1,4 @@
-import { FC, useContext } from "react";
-import { NavbarMenuContext } from "../../../context/navbar-menu-context";
+import { FC } from "react";
 import { IconButton } from "@mui/material";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
@@ -9,10 +8,19 @@ import {
   CarouselBoxCustomize,
   TypographyCustomize,
 } from "./text-carousel.styled";
+import { stepperTextArr } from "../../../state/state";
 
-const TextCarousel: FC = () => {
-  const { stepperTextArr, handleNext, handlePrevious, state } =
-    useContext(NavbarMenuContext);
+interface TextCarouselPropsModel{
+   state: {
+    navbarSearchButtonToggle: boolean;
+    activeStep: number;
+    burgerToggle: boolean;
+   };
+    handleNext: VoidFunction;
+  handlePrevious: VoidFunction;
+}
+
+const TextCarousel: FC<TextCarouselPropsModel> = ({state, handleNext, handlePrevious}) => {
 
   return (
     <CarouselBoxCustomize>

@@ -1,11 +1,13 @@
-import { FC, useContext } from "react";
+import { Dispatch, FC, SetStateAction } from "react";
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import { FormControlCustomize, TextFieldCustomize, IconButtonCustomize } from "./form-subscription-footer-customize";
-import { FooterContext } from "../../../context/footer-context";
 
+interface FormSubscriptionFooterPropsModel{
+    getEmail: () => void;
+    setHandleEmail: Dispatch<SetStateAction<string>>
+}
 
-const FormSubscriptionFooter: FC = () => {
-  const { setHandleEmail, getEmail } = useContext(FooterContext);
+const FormSubscriptionFooter: FC<FormSubscriptionFooterPropsModel> = ({getEmail, setHandleEmail}) => {
   return (
     <FormControlCustomize>
       <TextFieldCustomize

@@ -1,19 +1,32 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import { IconButton } from "@mui/material";
 import { NavbarBoxCustomize } from "./navbar-menu-left.styled";
 import SearchIcon from "../../atom/search-Icon/search-icon";
 
 import TextFieldNavbar from "../../atom/text-field-navbar/text-field-navbar";
-import { NavbarMenuContext } from "../../../context/navbar-menu-context";
-const NavbarMenuLeft: FC = () => {
-  const { state, handleMenuBurger } = useContext(NavbarMenuContext);
+
+interface NavbarMenuLeftPropsModel {
+  state: {
+    navbarSearchButtonToggle: boolean;
+    activeStep: number;
+    burgerToggle: boolean;
+  };
+  handleMenuBurger: VoidFunction;
+  updateSearchButtonState: (value: boolean) => void;
+}
+
+const NavbarMenuLeft: FC<NavbarMenuLeftPropsModel> = ({
+  state,
+  handleMenuBurger,
+  updateSearchButtonState
+}) => {
   return (
     <NavbarBoxCustomize>
-      <IconButton onClick={()=> handleMenuBurger()} aria-label="cart">
-          <MenuOutlinedIcon />
+      <IconButton onClick={() => handleMenuBurger()} aria-label="cart">
+        <MenuOutlinedIcon />
       </IconButton>
-      {state.navbarSearchButtonToggle ?  <SearchIcon /> : <TextFieldNavbar/> }
+      {state.navbarSearchButtonToggle ? <SearchIcon updateSearchButtonState={updateSearchButtonState} /> : <TextFieldNavbar updateSearchButtonState={updateSearchButtonState} />}
     </NavbarBoxCustomize>
   );
 };

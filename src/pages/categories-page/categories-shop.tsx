@@ -5,7 +5,7 @@ import CategoryBox from "./category-box/category-box";
 const CategoryShop = () => {
   return (
     <ThemeProvider theme={theme}>
-        <CategoryBox />
+      <CategoryBox />
     </ThemeProvider>
   );
 };

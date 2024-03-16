@@ -1,9 +1,9 @@
 import { FormControlLabel } from "@mui/material";
-import CategoryBoxMenuHeader from "../category-box-menu-header/category-box-menu-header";
+import CategoryBoxMenuHeader from "../categories-box-menu-header/categories-box-menu-header";
 import {
   AvailabilityBox,
   IOSSwitch,
-} from "./category-box-menu-availability.styled";
+} from "./categories-box-menu-availability.styled";
 
 const CategoryBoxMenuAvailability = () => {
   return (

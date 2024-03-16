@@ -4,10 +4,10 @@ import {
   PriceSliderBox,
   SliderBox,
   TypographySliderParagraph,
-} from "./category-box-menu-slider.styled"; // Assuming this imports styled components
-import CategoryBoxMenuHeader from "../category-box-menu-header/category-box-menu-header";
+} from "./categories-box-menu-slider.styled"; // Assuming this imports styled components
+import CategoryBoxMenuHeader from "../categories-box-menu-header/categories-box-menu-header";
 import { Slider } from "@mui/material";
-import CategoryBoxMenuAvailability from "../category-box-menu-availability/category-box-menu-availability";
+import CategoryBoxMenuAvailability from "../categories-box-menu-availability/categories-box-menu-availability";
 
 const CategoryBoxMenuSlider = () => {
   const [value, setValue] = useState<number[]>([0, 160]);
