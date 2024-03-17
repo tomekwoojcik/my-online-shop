@@ -9,9 +9,7 @@ export const apiUpdateCart = async (
   const apiUrl: string = url + apiCartPath;
 
   try {
-    const response = await axios.delete<CartModel>(apiUrl, {
-      productUuid: productUuid,
-    });
+    const response = await axios.delete<CartModel>(apiUrl + `/${productUuid}`);
     return response.data;
   } catch (error) {
     console.log(error);
