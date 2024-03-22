@@ -7,6 +7,7 @@ import { theme } from "../../../context/theme-context";
 import { Outlet, useLoaderData } from "react-router";
 import { CategoriesModel } from "../../../api/api-get-categories";
 import Slides from "../../../pages/home-page-slides/slides";
+import { CartProvider } from "../../../context/cart-context";
 
 export const MainPage: FC = () => {
   const category = useLoaderData() as CategoriesModel[];
@@ -15,7 +16,9 @@ export const MainPage: FC = () => {
     <ThemeProvider theme={theme}>
       <Grid className="container" container>
         <Grid item>
-          <Navbar categories={category} />
+          <CartProvider>
+            <Navbar categories={category} />
+          </CartProvider>
           <BoxSliderMenu categories={category} />
         </Grid>
         <Grid item>

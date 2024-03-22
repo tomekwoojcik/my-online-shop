@@ -13,8 +13,23 @@ export interface StepperObjModel {
   label: string;
 }
 
-export const apiPath: string =
-  "https://lopi2-backend-5517f8f04d28.herokuapp.com/api/";
+interface AxiosConfigInterface {
+  withCredentials: boolean;
+  headers: {
+    "Content-Type": string;
+  };
+}
+
+export const credentialsObj = { withCredentials: true };
+
+export const axiosConfig: AxiosConfigInterface = {
+  ...credentialsObj,
+  headers: {
+    "Content-Type": "application/json",
+  },
+};
+
+export const cookiesEndpoint: string = "cookie/read";
 
 export const mainPath = "/";
 export const categoriesPath = "categories";
@@ -23,7 +38,7 @@ export const checkoutPath = "checkout";
 export const orderConfirmationPath = "orderConfirmation";
 export const productPath = "products";
 export const singleProductPath = `${productPath}/:productId`;
-export const singleCategoryPath: string =`:category`;
+export const singleCategoryPath: string = `:category`;
 
 export const ourUsString: string = "o nas";
 export const apiCartPath: string = "cart";
@@ -114,5 +129,29 @@ export const carouselArr: CarouselModel[] = [
     mainTitle: "Twoje Magiczne Miejsce na Chwilę Rozkoszy",
     buttonName: "Odwiedź Naszą Kawiarnię",
     shortbuttonName: "Odwiedź",
+  },
+];
+
+export interface SelectHeaderModel {
+  value: string;
+  labelText: string;
+}
+
+export const selectValueHeader: SelectHeaderModel[] = [
+  {
+    value: "10",
+    labelText: "Cena rosnąco",
+  },
+  {
+    value: "20",
+    labelText: "Cena malejąco",
+  },
+  {
+    value: "30",
+    labelText: "Od A do Z",
+  },
+  {
+    value: "40",
+    labelText: "Od Z do A",
   },
 ];

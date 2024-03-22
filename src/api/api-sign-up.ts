@@ -1,7 +1,5 @@
 import axios from "axios";
-
-export const apiBase: string =
-  "https://lopi2-backend-5517f8f04d28.herokuapp.com/api/";
+import { axiosConfig } from "../state/state";
 
 export enum Role {
   ROLE_USER = "ROLE_USER",
@@ -33,13 +31,12 @@ export const signUp = async (
 ): Promise<responseSignUpModel | undefined> => {
   const signUpUrl: string = url + "auth/signup";
   try {
-    const response = await axios.post<responseSignUpModel>(
-      signUpUrl,
-      requestObj
-    );
+    const response = await axios.post<responseSignUpModel>(signUpUrl, null, {
+      params: requestObj,
+      ...axiosConfig,
+    });
     return response.data;
   } catch (error) {
     console.log(error);
   }
 };
-

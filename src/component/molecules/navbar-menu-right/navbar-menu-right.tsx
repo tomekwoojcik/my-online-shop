@@ -14,11 +14,12 @@ interface NavbarMenuRightPropsModel {
     activeStep: number;
     burgerToggle: boolean;
   };
-    updateSearchButtonState: (value: boolean) => void;
+  updateSearchButtonState: (value: boolean) => void;
+  cartBadgeContent: number | undefined;
 
 }
 
-const NavbarMenuRight: FC<NavbarMenuRightPropsModel> = ({ state, updateSearchButtonState }) => {
+const NavbarMenuRight: FC<NavbarMenuRightPropsModel> = ({ state, updateSearchButtonState, cartBadgeContent }) => {
   return (
     <NavBarBoxCustomize sx={{ display: { xs: "flex" } }}>
       {useMediaQuery(breakpointViewSize) ? (
@@ -37,7 +38,7 @@ const NavbarMenuRight: FC<NavbarMenuRightPropsModel> = ({ state, updateSearchBut
         </BadgeCustomize>
       </IconButton>
       <IconButton aria-label="cart">
-        <BadgeCustomize badgeContent={1} color="secondary">
+        <BadgeCustomize badgeContent={cartBadgeContent} color="secondary">
           <ShoppingCartOutlinedIcon />
         </BadgeCustomize>
       </IconButton>

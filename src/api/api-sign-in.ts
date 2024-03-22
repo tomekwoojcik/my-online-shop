@@ -1,4 +1,5 @@
 import axios from "axios";
+import { axiosConfig } from "../state/state";
 
 interface loginDataModel {
   username: string;
@@ -19,10 +20,10 @@ export const signIn = async (
 ): Promise<responseSignInModel | undefined> => {
   const singUpUrl: string = url + "auth/signin";
   try {
-    const response = await axios.post<responseSignInModel>(
-      singUpUrl,
-      loginData
-    );
+    const response = await axios.post<responseSignInModel>(singUpUrl, null, {
+      params: loginData,
+      ...axiosConfig,
+    });
     return response.data;
   } catch (error) {
     console.log(error);

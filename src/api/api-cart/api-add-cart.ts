@@ -1,18 +1,23 @@
 import axios from "axios";
-import { apiCartPath } from "../../state/state";
+import { apiCartPath, axiosConfig } from "../../state/state";
 import { CartModel } from "./api-get-cart";
 
-export const apiUpdateCart = async (
+export interface ProductObjectInCartModel {
+  productUuid: string;
+  quantity: number;
+}
+
+export const apiAddCart = async (
   url: string,
-  productUuid: string,
-  quantity: number
+  product: ProductObjectInCartModel
 ): Promise<CartModel | undefined> => {
   const apiUrl: string = url + apiCartPath;
-
   try {
-    const response = await axios.post<CartModel>(apiUrl, {
-      productUuid: productUuid,
-      quantity: quantity,
+    const response = await axios.post<CartModel>(apiUrl, null, {
+      params: product,
+      //TODO wynieść do state badz config
+      //TODO .env
+      ...axiosConfig
     });
     return response.data;
   } catch (error) {

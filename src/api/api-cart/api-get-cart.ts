@@ -1,5 +1,5 @@
 import axios from "axios";
-import { apiCartPath } from "../../state/state";
+import { apiCartPath, credentialsObj } from "../../state/state";
 import { ProductModel } from "../api-product";
 
 export interface CartProductModel {
@@ -20,7 +20,7 @@ export const apiGetCart = async (
   const apiUrl: string = url + apiCartPath;
 
   try {
-    const response = await axios.get<CartModel>(apiUrl);
+    const response = await axios.get<CartModel>(apiUrl, credentialsObj);
     return response.data;
   } catch (error) {
     console.log(error);
