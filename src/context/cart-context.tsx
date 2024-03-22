@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useMemo, useState } from "react";
 import {
   ProductObjectInCartModel,
   apiAddCart,
@@ -7,6 +7,10 @@ import { CartModel, apiGetCart } from "../api/api-cart/api-get-cart";
 import { apiUpdateCart } from "../api/api-cart/api-update-cart";
 import { apiClearCart } from "../api/api-cart/api-clear-cart";
 import { apiDeleteProductInCart } from "../api/api-cart/api-delete-product-cart";
+
+export interface ContextValueInterface {
+  cart: CartModel | undefined;
+}
 
 export interface CartContextInterface {
   addProductToCart: (
@@ -18,14 +22,13 @@ export interface CartContextInterface {
   ) => Promise<CartModel | undefined>;
   clearProductsInCart: () => Promise<CartModel | undefined>;
   deleteProductInCart: (productUuid: string) => Promise<CartModel | undefined>;
+  contextValue: ContextValueInterface;
 }
 export interface PropsContextModel {
   children: JSX.Element | JSX.Element[];
 }
 
 const CartContext = createContext({} as CartContextInterface);
-
-
 
 const CartProvider = ({ children }: PropsContextModel) => {
   const [cart, setCart] = useState<CartModel | undefined>(undefined);
@@ -66,11 +69,18 @@ const CartProvider = ({ children }: PropsContextModel) => {
     return apiDelete;
   };
 
+  const contextValue = useMemo<ContextValueInterface>(() => {
+    return {
+      cart,
+    };
+  }, [cart]);
+
   return (
     <CartContext.Provider
       value={{
         addProductToCart,
         cart,
+        contextValue,
         updateProductToCart,
         clearProductsInCart,
         deleteProductInCart,

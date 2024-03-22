@@ -17,7 +17,8 @@ interface NavBarPropsModel {
 
 export const Navbar: FC<NavBarPropsModel> = ({ categories }) => {
   const [state, dispatch] = useReducer(reducer, initState);
-  const { cart } = useCartContext();
+  const { contextValue } = useCartContext();
+  
   const handleMenuBurger: VoidFunction = () =>
     dispatch({
       type: REDUCER_ACTION_TYPE.HANDLE_BURGER_MENU,
@@ -46,7 +47,7 @@ export const Navbar: FC<NavBarPropsModel> = ({ categories }) => {
       <NavbarMenuRight
         updateSearchButtonState={updateSearchButtonState}
         state={state}
-        cartBadgeContent={cart?.totalQuantity}
+        cartBadgeContent={contextValue.cart?.totalQuantity}
       />
     </AppBarCustomize>
   );
