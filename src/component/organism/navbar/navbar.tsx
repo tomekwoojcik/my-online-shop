@@ -9,6 +9,7 @@ import { useMediaQuery } from "@mui/material";
 import { breakpointViewSize } from "../../../state/state";
 import { reducer, initState } from "../../../reducer/navbar-reducer";
 import { REDUCER_ACTION_TYPE } from "../../../hooks/navbarHooks";
+import { useCartContext } from "../../../context/use-cart-context";
 
 interface NavBarPropsModel {
   categories: CategoriesModel[];
@@ -16,29 +17,38 @@ interface NavBarPropsModel {
 
 export const Navbar: FC<NavBarPropsModel> = ({ categories }) => {
   const [state, dispatch] = useReducer(reducer, initState);
-
+  const { contextValue } = useCartContext();
+  
   const handleMenuBurger: VoidFunction = () =>
     dispatch({
       type: REDUCER_ACTION_TYPE.HANDLE_BURGER_MENU,
       payload: !state.burgerToggle,
     });
-  
-    const updateSearchButtonState = (value: boolean):void => {
+
+  const updateSearchButtonState = (value: boolean): void => {
     dispatch({
       type: REDUCER_ACTION_TYPE.HANDLE_SEARCH_BUTTON,
       payload: value,
-    })};
+    });
+  };
 
-  
   return (
     <AppBarCustomize position="static">
       {useMediaQuery(breakpointViewSize) ? (
         <PopupsMenu categories={categories} />
       ) : (
-        <NavbarMenuLeft updateSearchButtonState={updateSearchButtonState}  handleMenuBurger={handleMenuBurger} state={state} />
+        <NavbarMenuLeft
+          updateSearchButtonState={updateSearchButtonState}
+          handleMenuBurger={handleMenuBurger}
+          state={state}
+        />
       )}
       {useMediaQuery(breakpointViewSize) ? <NavbarLogo /> : null}
-      <NavbarMenuRight  updateSearchButtonState={updateSearchButtonState} state={state} />
+      <NavbarMenuRight
+        updateSearchButtonState={updateSearchButtonState}
+        state={state}
+        cartBadgeContent={contextValue.cart?.totalQuantity}
+      />
     </AppBarCustomize>
   );
 };

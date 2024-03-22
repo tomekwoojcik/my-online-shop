@@ -1,5 +1,6 @@
 import axios from "axios";
 import { ProductModel } from "./api-product";
+import { axiosConfig } from "../state/state";
 
 export interface SetProductModel {
   name: string;
@@ -31,7 +32,10 @@ export const apiAddProducts = async (
 ): Promise<ProductModel | undefined> => {
   const apiUrl = url + "products";
   try {
-    const response = await axios.post(apiUrl, product);
+    const response = await axios.post(apiUrl, null, {
+      params: product,
+      ...axiosConfig
+    });
     return response.data;
   } catch (error) {
     console.log(error);
