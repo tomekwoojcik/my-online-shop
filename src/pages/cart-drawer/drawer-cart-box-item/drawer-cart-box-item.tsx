@@ -12,6 +12,8 @@ interface DrawerCartBoxItemInterface {
   lastIdx: number;
 }
 
+const iconSize: string = "25px !important";
+
 const DrawerCartBoxItem: FC<DrawerCartBoxItemInterface> = ({
   cartItem,
   idx,
@@ -48,7 +50,7 @@ const DrawerCartBoxItem: FC<DrawerCartBoxItemInterface> = ({
         <ControlBox>
           <IconButton>
             <DeleteOutlinedIcon
-              sx={{ width: "25px !important", height: "25px !important" }}
+              sx={{ width: iconSize, height: iconSize }}
             />
           </IconButton>
 
