@@ -1,5 +1,10 @@
 import { CategoriesModel } from "../api/api-get-categories";
 
+export const primaryColor = "#f28729";
+export const grayColor = "#c9cdc7";
+export const backgroundColor = "#F2EFE9";
+export const blackColor = "#000000";
+export const fontFamily = "Outfit !important"
 export interface ArrButtonModel {
   heading: string;
 }
@@ -23,7 +28,7 @@ export const checkoutPath = "checkout";
 export const orderConfirmationPath = "orderConfirmation";
 export const productPath = "products";
 export const singleProductPath = `${productPath}/:productId`;
-export const singleCategoryPath: string =`:category`;
+export const singleCategoryPath: string = `:category`;
 
 export const ourUsString: string = "o nas";
 
@@ -113,5 +118,29 @@ export const carouselArr: CarouselModel[] = [
     mainTitle: "Twoje Magiczne Miejsce na Chwilę Rozkoszy",
     buttonName: "Odwiedź Naszą Kawiarnię",
     shortbuttonName: "Odwiedź",
+  },
+];
+
+export interface SelectHeaderModel {
+  value: string;
+  labelText: string;
+}
+
+export const selectValueHeader: SelectHeaderModel[] = [
+  {
+    value: "10",
+    labelText: "Cena rosnąco",
+  },
+  {
+    value: "20",
+    labelText: "Cena malejąco",
+  },
+  {
+    value: "30",
+    labelText: "Od A do Z",
+  },
+  {
+    value: "40",
+    labelText: "Od Z do A",
   },
 ];
