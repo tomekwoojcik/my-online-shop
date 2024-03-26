@@ -1,18 +1,15 @@
 import { FC, useState } from "react";
-import { Box, IconButton, ListItem } from "@mui/material";
-import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
-import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
-import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
+import { ListItem } from "@mui/material";
 import { CartProductModel } from "../drawer-cart-box/drawer-cart-box";
 import { grayColor } from "../../../state/state";
-import { ContentBox, ControlBox, CountBox, MasterBoxItem, PriceBox, ProductImg, TypographyDiscountPrice, TypographyPrice, TypographyProductName, TypographyQuantity } from "./drawer-cart-box-item-styled";
+import { MasterBoxItem } from "./drawer-cart-box-item-styled";
+import DrawerCartBoxItemContentBox from "./drawer-cart-box-item-content-box";
+import DrawerCartBoxItemControl from "./drawer-cart-box-item-control";
 interface DrawerCartBoxItemInterface {
   cartItem: CartProductModel;
   idx: number;
   lastIdx: number;
 }
-
-const iconSize: string = "25px !important";
 
 const DrawerCartBoxItem: FC<DrawerCartBoxItemInterface> = ({
   cartItem,
@@ -23,8 +20,6 @@ const DrawerCartBoxItem: FC<DrawerCartBoxItemInterface> = ({
     cartItem.quantity
   );
 
-          //TODO zapytać michała - czy nie za duzy komponent
-    
   return (
     <ListItem>
       <MasterBoxItem
@@ -33,41 +28,11 @@ const DrawerCartBoxItem: FC<DrawerCartBoxItemInterface> = ({
           borderBottom: idx === lastIdx ? "none" : `1px solid ${grayColor}`,
         }}
       >
-        <ContentBox>
-          <ProductImg />
-          <Box sx={{ width: "100%" }}>
-            <TypographyProductName>
-              {cartItem.product.name}
-            </TypographyProductName>
-            <PriceBox>
-              <TypographyDiscountPrice>
-                {`${cartItem.product.discountPrice}zł`}
-              </TypographyDiscountPrice>
-              <TypographyPrice>{`${cartItem.product.regularPrice}zł`}</TypographyPrice>
-            </PriceBox>
-          </Box>
-        </ContentBox>
-        <ControlBox>
-          <IconButton>
-            <DeleteOutlinedIcon
-              sx={{ width: iconSize, height: iconSize }}
-            />
-          </IconButton>
-
-          <CountBox>
-            <IconButton
-              onClick={() => setCartItemQuantity(cartItemQuantity - 1)}
-            >
-              <RemoveOutlinedIcon />
-            </IconButton>
-            <TypographyQuantity>{cartItemQuantity}</TypographyQuantity>
-            <IconButton>
-              <AddOutlinedIcon
-                onClick={() => setCartItemQuantity(cartItemQuantity + 1)}
-              />
-            </IconButton>
-          </CountBox>
-        </ControlBox>
+        <DrawerCartBoxItemContentBox cartItem={cartItem} />
+        <DrawerCartBoxItemControl
+          setCartItemQuantity={setCartItemQuantity}
+          cartItemQuantity={cartItemQuantity}
+        />
       </MasterBoxItem>
     </ListItem>
   );

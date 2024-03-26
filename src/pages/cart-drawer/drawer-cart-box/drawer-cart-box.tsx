@@ -6,6 +6,7 @@ import axios from "axios";
 import { ProductModel } from "../../../api/api-product";
 import DrawerCartBoxItem from "../drawer-cart-box-item/drawer-cart-box-item";
 import { fontFamily } from "../../../state/state";
+import DrawerCartBoxSummary from "../drawer-cart-box-summary/drawer-cart-box-summary";
 
 const apiCartPath: string = "cart";
 
@@ -38,7 +39,7 @@ const BoxCart = styled(Box)`
 `;
 
 const HeaderBoxCart = styled(Typography)`
-  font-family:${fontFamily};
+  font-family: ${fontFamily};
   font-size: 16px !important;
   font-weight: 500 !important;
   line-height: 23px !important;
@@ -57,15 +58,23 @@ const DrawerCartBox: FC = () => {
     };
     getChartData();
   }, []);
-    console.log(cart);
+
   return (
     <BoxCart>
       <HeaderBoxCart variant="h3">Twój koszyk</HeaderBoxCart>
       <List>
         {cart?.cartItems.map((cartItem: CartProductModel, idx: number) => (
-            <DrawerCartBoxItem key={idx} cartItem={cartItem} idx={idx} lastIdx ={cart.cartItems.length} />
+          <DrawerCartBoxItem
+            key={idx}
+            cartItem={cartItem}
+            idx={idx}
+            lastIdx={cart.cartItems.length}
+          />
         ))}
       </List>
+
+          <DrawerCartBoxSummary cartItem={cart} />
+          
     </BoxCart>
   );
 };

@@ -4,6 +4,7 @@ export const primaryColor: string = "#f28729";
 export const grayColor: string = "#c9cdc7";
 export const backgroundColor: string = "#F2EFE9";
 export const blackColor: string = "#000000";
+export const brownColor: string = "#592D1D";
 export const fontFamily: string = "Outfit !important";
 export interface ArrButtonModel {
   heading: string;
