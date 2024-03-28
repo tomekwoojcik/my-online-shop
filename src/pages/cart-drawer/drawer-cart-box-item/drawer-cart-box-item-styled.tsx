@@ -1,8 +1,12 @@
 import { Box, Typography } from "@mui/material";
 import styled from "styled-components";
-import { fontFamily, blackColor, grayColor, primaryColor } from "../../../state/state";
+import {
+  fontFamily,
+  blackColor,
+  grayColor,
+  primaryColor,
+} from "../../../state/state";
 import image from "../../../assets/products/ethiopia/adventure.png";
-
 
 export const MasterBoxItem = styled(Box)`
   display: flex;
@@ -23,7 +27,7 @@ export const PriceBox = styled(Box)`
   align-items: center;
 `;
 
-export  const ProductImg = styled(Box)`
+export const ProductImg = styled(Box)`
   background: url(${image}) !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
