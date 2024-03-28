@@ -7,8 +7,9 @@ import { Box, Grid, styled, useMediaQuery } from "@mui/material";
 import { NavigateFunction, Outlet, useNavigate } from "react-router-dom";
 import { CategoryBoxMenu } from "../../categories-page/categories-box-menu/categories-box-menu";
 import { CategoryDialog } from "../categories-box-menu/categories-box-menu-dialog";
-import CategoryHeaderSelect from "../../category-shop/category-header-select/category-header-select";
-import CategoryHeader from "../../category-shop/category-header/category-header";
+import CategoryHeader from "../categories-box-header/categories-box-header";
+import CategoryHeaderSelect from "../categories-header-select/categories-header-select";
+
 
 const BoxStyled = styled(Box)`
   flex-grow: 1;
