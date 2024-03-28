@@ -1,5 +1,8 @@
 import { CategoriesModel } from "../api/api-get-categories";
-
+import slider1 from "../assets/slider-component/slider1.png";
+import slider2 from "../assets/slider-component/slider2.png";
+import slider3 from "../assets/slider-component/slider3.png";
+import { CarouselModel } from "../model/model";
 export interface ArrButtonModel {
   heading: string;
 }
@@ -23,9 +26,10 @@ export const checkoutPath = "checkout";
 export const orderConfirmationPath = "orderConfirmation";
 export const productPath = "products";
 export const singleProductPath = `${productPath}/:productId`;
-export const singleCategoryPath: string =`:category`;
-
+export const singleCategoryPath: string = `:category`;  
 export const ourUsString: string = "o nas";
+export const breakpointViewSize: string = "(min-width: 768px)";
+export const breakpointViewSizeHeader: string = "(min-width: 1024px)";
 
 export const stepperTextArr: StepperObjModel[] = [
   { key: 1, label: "Darmowa wysyłka powyżej 200 zł" },
@@ -79,15 +83,32 @@ export const helpCenterArr: MenuBoxObjModel[] = [
         heading: "Kawiarnia",
       },
     ],
-  },
+  }
 ];
 
-export const breakpointViewSize: string = "(min-width: 768px)";
+export interface SelectHeaderModel {
+  value: string;
+  labelText: string;
+}
 
-import slider1 from "../assets/slider-component/slider1.png";
-import slider2 from "../assets/slider-component/slider2.png";
-import slider3 from "../assets/slider-component/slider3.png";
-import { CarouselModel } from "../model/model";
+export const selectValueHeader: SelectHeaderModel[] = [
+  {
+    value: "10",
+    labelText: "Cena rosnąco",
+  },
+  {
+    value: "20",
+    labelText: "Cena malejąco",
+  },
+  {
+    value: "30",
+    labelText: "Od A do Z",
+  },
+  {
+    value: "40",
+    labelText: "Od Z do A",
+  },
+];
 
 export const carouselArr: CarouselModel[] = [
   {
