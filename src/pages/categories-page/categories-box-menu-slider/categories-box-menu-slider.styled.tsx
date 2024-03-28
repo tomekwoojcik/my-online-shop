@@ -9,7 +9,6 @@ export const SliderBox = styled(Box)`
   border-top: 1px solid #c9cdc7;
 `;
 
-
 export const TypographySliderParagraph = styled(Typography)`
   font-family: Quicksand !important;
   font-size: 15px !important;

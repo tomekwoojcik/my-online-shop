@@ -1,13 +1,10 @@
 import { useState } from "react";
 
-import {
-  PriceSliderBox,
-  SliderBox,
-  TypographySliderParagraph,
-} from "./categories-box-menu-slider.styled"; // Assuming this imports styled components
+
 import CategoryBoxMenuHeader from "../categories-box-menu-header/categories-box-menu-header";
 import { Slider } from "@mui/material";
 import CategoryBoxMenuAvailability from "../categories-box-menu-availability/categories-box-menu-availability";
+import { PriceSliderBox, SliderBox, TypographySliderParagraph } from "./categories-box-menu-slider.styled";
 
 const CategoryBoxMenuSlider = () => {
   const [value, setValue] = useState<number[]>([0, 160]);
@@ -21,7 +18,7 @@ const CategoryBoxMenuSlider = () => {
     switch (index) {
       case 0:
         return "Cena początkowa";
-
+      case 1:
         return "Cena maksymalna";
       default:
         return "Suwak ceny";

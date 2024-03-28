@@ -35,7 +35,11 @@ export const stepperTextArr: StepperObjModel[] = [
   { key: 1, label: "Darmowa wysyłka powyżej 200 zł" },
   { key: 2, label: "Twoje zamówienie jest dla nas wazne" },
 ];
-
+export const initialQuantityOfProductsFullView: number = 6;
+export const initialQuantityOfProductsMobileView: number = 4;
+export const initialProductStatus: string = "ACTIVE";
+export const initialWidthProduct: string = "72.9% !important";
+export const initialWidthProductMobile: string = "100% important";
 export const aboutUsArr: CategoriesModel[] = [
   {
     name: "O nas",
@@ -136,3 +140,5 @@ export const carouselArr: CarouselModel[] = [
     shortbuttonName: "Odwiedź",
   },
 ];
+
+
