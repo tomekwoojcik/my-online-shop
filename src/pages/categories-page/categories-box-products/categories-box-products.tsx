@@ -31,7 +31,7 @@ const CategoriesBoxProducts: FC = () => {
     : initialQuantityOfProductsMobileView;
   const [numberOfProductsOnThePage, setNumberOfProductsOnThePage] =
     useState<number>(startProductOfPage);
-  const [productsArr, setProductsArr] = useState<ProductModel[] | []>([]);
+  const [productsArr, setProductsArr] = useState<ProductModel[]>([]);
   const [productsObj, setProductsObj] = useState<ProductsModel | undefined>();
   const [page, setPage] = useState<number>(0);
 
@@ -74,8 +74,8 @@ const CategoriesBoxProducts: FC = () => {
           <Grid
             item
             key={idx}
-            xs={initialQuantityOfProductsFullView}
-            lg={initialQuantityOfProductsMobileView}
+            xs={6}
+            lg={4}
           >
             <CategoriesBoxProductsCart
               breakpoint={breakpoint}
